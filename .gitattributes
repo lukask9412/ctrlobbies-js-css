@@ -20,3 +20,4 @@
 # Any text assets → LF
 *.txt    text eol=lf
 *.md     text eol=lf
+* text=auto
