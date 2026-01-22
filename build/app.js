@@ -6630,7 +6630,6 @@ if (!window._3f8rc0x586eet346) {
       _src_common_InjectedElements__WEBPACK_IMPORTED_MODULE_2__["default"].remove().catch(function (error) {
         return error;
       });
-      new _src_common_ThemeLoader__WEBPACK_IMPORTED_MODULE_1__["default"]();
     };
     if (document.readyState === "loading") {
       document.addEventListener('DOMContentLoaded', function () {

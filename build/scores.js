@@ -25,7 +25,6 @@ if (!window._3f8rc0x586eet346) {
       _src_common_InjectedElements__WEBPACK_IMPORTED_MODULE_2__["default"].remove().catch(function (error) {
         return error;
       });
-      new _src_common_ThemeLoader__WEBPACK_IMPORTED_MODULE_1__["default"]();
     };
     if (document.readyState === "loading") {
       document.addEventListener('DOMContentLoaded', function () {
@@ -350,7 +349,7 @@ var AlertDialog = /*#__PURE__*/function () {
         element.classList.add("alert-" + type);
         textElement.innerHTML = message;
         element.style.visibility = "visible";
-        _Fade__WEBPACK_IMPORTED_MODULE_29__["default"].fadeTo(element, fadeTime, 1, "swing", function () {
+        _Fade__WEBPACK_IMPORTED_MODULE_29__["default"].fadeTo(element, fadeTime, 1, function () {
           element.classList.add("alert-dialog-loading");
           if (!isLoader) {
             setTimeout(function () {
@@ -401,7 +400,7 @@ var AlertDialog = /*#__PURE__*/function () {
       }
       elements.forEach(function (element, index) {
         setTimeout(function () {
-          _Fade__WEBPACK_IMPORTED_MODULE_29__["default"].fadeTo(element, fadeTime, 0, "swing", function () {
+          _Fade__WEBPACK_IMPORTED_MODULE_29__["default"].fadeTo(element, fadeTime, 0, function () {
             var textElement = element.querySelector("span");
             textElement.innerHTML = "&nbps;";
             element.style.visibility = "hidden";
@@ -482,6 +481,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i.return) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 
@@ -515,21 +515,25 @@ var Copy = /*#__PURE__*/function () {
     value: function () {
       var _text2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(_text) {
         var _navigator, _document$queryComman, _document;
-        var textarea, success;
+        var textarea, success, _t, _t2;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
               if (!((_navigator = navigator) !== null && _navigator !== void 0 && (_navigator = _navigator.clipboard) !== null && _navigator !== void 0 && _navigator.writeText)) {
-                _context.n = 2;
+                _context.n = 4;
                 break;
               }
-              _context.n = 1;
+              _context.p = 1;
+              _context.n = 2;
               return navigator.clipboard.writeText(_text);
-            case 1:
-              return _context.a(2);
             case 2:
+              return _context.a(2);
+            case 3:
+              _context.p = 3;
+              _t = _context.v;
+            case 4:
               if (!((_document$queryComman = (_document = document).queryCommandSupported) !== null && _document$queryComman !== void 0 && _document$queryComman.call(_document, "copy"))) {
-                _context.n = 6;
+                _context.n = 10;
                 break;
               }
               textarea = document.createElement("textarea");
@@ -545,30 +549,64 @@ var Copy = /*#__PURE__*/function () {
               document.body.appendChild(textarea);
               textarea.focus();
               textarea.select();
-              _context.p = 3;
+              _context.p = 5;
               success = document.execCommand("copy");
-              if (success) {
-                _context.n = 4;
+              if (!success) {
+                _context.n = 6;
                 break;
               }
-              throw new Error("Copy command failed");
-            case 4:
-              _context.p = 4;
-              document.body.removeChild(textarea);
-              return _context.f(4);
-            case 5:
               return _context.a(2);
             case 6:
-              throw new Error("None of copying methods are supported by this browser!");
+              _context.n = 8;
+              break;
             case 7:
+              _context.p = 7;
+              _t2 = _context.v;
+              throw _t2;
+            case 8:
+              _context.p = 8;
+              document.body.removeChild(textarea);
+              return _context.f(8);
+            case 9:
+              return _context.a(2);
+            case 10:
+              throw new Error("None of copying methods are supported by this browser!");
+            case 11:
               return _context.a(2);
           }
-        }, _callee, null, [[3,, 4, 5]]);
+        }, _callee, null, [[5, 7, 8, 9], [1, 3]]);
       }));
       function text(_x) {
         return _text2.apply(this, arguments);
       }
       return text;
+    }()
+  }, {
+    key: "image",
+    value: function () {
+      var _image = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(blob) {
+        var item;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.n) {
+            case 0:
+              if (!(!navigator.clipboard || !navigator.clipboard.write)) {
+                _context2.n = 1;
+                break;
+              }
+              throw new Error("Clipboard API not supported for images");
+            case 1:
+              item = new ClipboardItem(_defineProperty({}, blob.type, blob));
+              _context2.n = 2;
+              return navigator.clipboard.write([item]);
+            case 2:
+              return _context2.a(2);
+          }
+        }, _callee2);
+      }));
+      function image(_x2) {
+        return _image.apply(this, arguments);
+      }
+      return image;
     }()
   }]);
 }();
@@ -1288,16 +1326,19 @@ var EventLock = /*#__PURE__*/function () {
     value: (
     /**
      * Wait for a lock for a specific event.
-     * Blocks if another caller is already holding it.
-     * @param {string} eventName
      *
+     * @param {string} eventName
+     * @param {boolean} acquire
      * @returns {Promise<boolean>}
      */
     function () {
       var _wait = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(eventName) {
+        var acquire,
+          _args = arguments;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.n) {
             case 0:
+              acquire = _args.length > 1 && _args[1] !== undefined ? _args[1] : false;
               if (!EventLock._destroyed.has(eventName)) {
                 _context.n = 1;
                 break;
@@ -1314,7 +1355,7 @@ var EventLock = /*#__PURE__*/function () {
               _context.n = 1;
               break;
             case 3:
-              EventLock.acquire(eventName);
+              acquire && EventLock.acquire(eventName);
               return _context.a(2, true);
           }
         }, _callee);
@@ -1323,7 +1364,13 @@ var EventLock = /*#__PURE__*/function () {
         return _wait.apply(this, arguments);
       }
       return wait;
-    }())
+    }()
+    /**
+     * Acquire a lock for a specific event.
+     *
+     * @param {string} eventName
+     */
+    )
   }, {
     key: "acquire",
     value: function acquire(eventName) {
@@ -1341,14 +1388,15 @@ var EventLock = /*#__PURE__*/function () {
     }
 
     /**
-     * Release the lock for an event
+     * Release the lock for an event.
+     *
      * @param {string} eventName
      * @param {boolean} destroy
      */
   }, {
     key: "release",
     value: function release(eventName) {
-      var destroy = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var destroy = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
       var lock = EventLock._locks.get(eventName);
       if (lock) {
         lock.resolve(); // unblock waiters
@@ -1433,8 +1481,8 @@ var Fade = /*#__PURE__*/function () {
     value: function fadeTo(element) {
       var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
       var targetOpacity = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
-      var easing = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "swing";
-      var callback = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+      var callback = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+      var easing = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : "";
       element = typeof element === "string" ? document.querySelector(element) : element;
       if (!element) return;
       if (duration <= 0) {
@@ -2786,6 +2834,7 @@ var ScoresController = /*#__PURE__*/function () {
     // Initialize locks needed later
     _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].acquire("preloader");
     _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].acquire("data");
+    _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].acquire("ui_loaded");
     this._appStart = {
       createdAt: new Date(),
       preloader: 1000,
@@ -2795,7 +2844,7 @@ var ScoresController = /*#__PURE__*/function () {
     if (this._appStart.preloader > 0) {
       // If using preloader, mark preloader as finished after the defined time
       setTimeout(function () {
-        _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("preloader", true);
+        _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("preloader");
       }, this._appStart.preloader);
     }
     this._table = {
@@ -2814,7 +2863,7 @@ var ScoresController = /*#__PURE__*/function () {
       time: {
         started_at: null,
         ended_at: null,
-        perceptual_minimum: 200
+        perceptual_minimum: 300
       }
     };
     this._presets = {
@@ -2834,7 +2883,7 @@ var ScoresController = /*#__PURE__*/function () {
       time: {
         started_at: null,
         ended_at: null,
-        perceptual_minimum: 200
+        perceptual_minimum: 300
       },
       error: ""
     };
@@ -2853,12 +2902,9 @@ var ScoresController = /*#__PURE__*/function () {
       },
       table: {
         displaying: false,
-        calculating: null,
-        resizeRAF: {
-          timeout: null,
-          width: 0
-        }
-      }
+        calculating: null
+      },
+      buttons: null
     };
     this._isSmallScreen = window.innerWidth < 1082;
     this._canvas = new _table_generator_Canvas__WEBPACK_IMPORTED_MODULE_60__["default"]();
@@ -2881,6 +2927,8 @@ var ScoresController = /*#__PURE__*/function () {
         appStartAlertModal: "#app-start-alert-modal",
         appTryAgain: ".js-try-again",
         contextMenuModal: "#context-menu-modal",
+        contextMenuCopy: ".js-context-menu-copy",
+        contextMenuCopyUrl: ".js-context-menu-copy-url",
         contextMenuDownload: ".js-context-menu-download",
         contextMenuView: ".js-context-menu-view",
         contextMenuEditScores: ".js-context-menu-edit",
@@ -3050,7 +3098,7 @@ var ScoresController = /*#__PURE__*/function () {
 
                         // Data are processed either way.
                         // Unlock initial waiting for data.
-                        _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("data", true);
+                        _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("data");
                         return _context.f(4);
                       case 5:
                         return _context.a(2);
@@ -3303,11 +3351,10 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "runApplication",
     value: function () {
-      var _runApplication = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7() {
-        var _this3 = this;
-        var table, isCustomBoard, finish;
-        return _regenerator().w(function (_context7) {
-          while (1) switch (_context7.n) {
+      var _runApplication = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
+        var table, isCustomBoard;
+        return _regenerator().w(function (_context6) {
+          while (1) switch (_context6.n) {
             case 0:
               // Disable textarea, buttons
               table = this._getTable(true);
@@ -3317,14 +3364,14 @@ var ScoresController = /*#__PURE__*/function () {
               }
 
               // Wait until initial data are fetched
-              _context7.n = 1;
+              _context6.n = 1;
               return _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].wait("data");
             case 1:
               if (!(this._appStart.data === "failed")) {
-                _context7.n = 2;
+                _context6.n = 2;
                 break;
               }
-              return _context7.a(2);
+              return _context6.a(2);
             case 2:
               // Set board calculation to a "custom" board from $_GET parameter
               if (this._isRanked()) {
@@ -3337,49 +3384,30 @@ var ScoresController = /*#__PURE__*/function () {
               // Start periodical fetching of boards and results submissions every DATA_FETCH_INTERVAL seconds
               setInterval(this.fetchAppDataAndCalculate.bind(this), ScoresController.DATA_FETCH_INTERVAL);
 
-              // Prepare a method that finishes application start
-              finish = /*#__PURE__*/function () {
-                var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
-                  return _regenerator().w(function (_context6) {
-                    while (1) switch (_context6.n) {
-                      case 0:
-                        // Remove canvas preloader (if exists)
-                        _this3._removeCanvasPreloader();
-
-                        // Enable buttons, textarea
-                        _this3._enableButtons();
-                        _this3._elements.textarea.classList.remove("disabled");
-
-                        // Set flag that the app has started
-                        _this3._appStart.status = "started";
-                      case 1:
-                        return _context6.a(2);
-                    }
-                  }, _callee6);
-                }));
-                return function finish() {
-                  return _ref3.apply(this, arguments);
-                };
-              }(); // If there is no table to be calculated, return early
+              // If there is no table to be calculated, return early
               if (table) {
-                _context7.n = 3;
+                _context6.n = 3;
                 break;
               }
-              finish();
-              return _context7.a(2);
+              this._removeCanvasPreloader();
+              this._enableButtons();
+              this._elements.textarea.classList.remove("disabled");
+              this._appStart.status = "started";
+              return _context6.a(2);
             case 3:
-              // Calculate results if there is a table to be calculated
-              this._calculate().then(function (data) {
-                return data;
-              }).catch(function (e) {
+              _context6.n = 4;
+              return this._calculate().catch(function (e) {
                 return e;
-              }).finally(function () {
-                return finish();
-              }); // Finish application start
+              });
             case 4:
-              return _context7.a(2);
+              // Mark the app as started and remove the remaining preloader and disabled element styles
+              this._removeCanvasPreloader();
+              this._elements.textarea.classList.remove("disabled");
+              this._appStart.status = "started";
+            case 5:
+              return _context6.a(2);
           }
-        }, _callee7, this);
+        }, _callee6, this);
       }));
       function runApplication() {
         return _runApplication.apply(this, arguments);
@@ -3391,10 +3419,10 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "addEventListeners",
     value: function addEventListeners() {
-      var _this4 = this;
+      var _this3 = this;
       // On textarea change (input)
       this._elements.textarea.addEventListener("input", function () {
-        return _this4._resizeTextarea(true);
+        return _this3._resizeTextarea(true);
       });
       this._elements.textarea.addEventListener("input", _common_Debounce__WEBPACK_IMPORTED_MODULE_64__["default"].debounce(this._onTextareaChange.bind(this), 500));
 
@@ -3407,7 +3435,7 @@ var ScoresController = /*#__PURE__*/function () {
       // Collapse elements (bootstrap show / hide)
       if (this._elements.collapseButton instanceof NodeList) {
         this._elements.collapseButton.forEach(function (element) {
-          _this4._onCollapse(element);
+          _this3._onCollapse(element);
         });
       } else {
         this._onCollapse(this._elements.collapseButton);
@@ -3415,7 +3443,7 @@ var ScoresController = /*#__PURE__*/function () {
 
       // Copy table to clipboard (button click)
       this._elements.copyTable.forEach(function (element) {
-        element.addEventListener("click", _this4._onCopyTableToClipboard.bind(_this4));
+        element.addEventListener("click", _this3._onCopyTableToClipboard.bind(_this3));
       });
 
       // On preset select click, switches to the selected preset
@@ -3440,7 +3468,7 @@ var ScoresController = /*#__PURE__*/function () {
 
       // On clicking "yes" to change preset = preset change confirmation
       this._elements.presetConfirmModalYes.forEach(function (element) {
-        element.addEventListener("click", _this4._changeToPreset.bind(_this4));
+        element.addEventListener("click", _this3._changeToPreset.bind(_this3));
       });
 
       // On "download" button click, downloads image to user's device
@@ -3454,23 +3482,23 @@ var ScoresController = /*#__PURE__*/function () {
 
       // On clicking button to show already submitted match
       this._elements.submittedMatchSwitch.forEach(function (element) {
-        element.addEventListener("click", _this4._onSubmittedMatchClick.bind(_this4));
+        element.addEventListener("click", _this3._onSubmittedMatchClick.bind(_this3));
       });
 
       // On "How to use" click, shows a modal
       this._elements.showHowToUseModal.forEach(function (element) {
-        element.addEventListener("click", _this4._onShowHowToUseModal.bind(_this4));
+        element.addEventListener("click", _this3._onShowHowToUseModal.bind(_this3));
       });
 
       // On "Table formatting" click, shows a modal
       this._elements.showTableFormattingModal.forEach(function (element) {
-        element.addEventListener("click", _this4._onShowTableFormattingModal.bind(_this4));
+        element.addEventListener("click", _this3._onShowTableFormattingModal.bind(_this3));
       });
 
       // On scroll bubble click
       if (this._elements.scrollBubbles instanceof NodeList) {
         this._elements.scrollBubbles.forEach(function (element) {
-          element.addEventListener("click", _this4._scrollToTarget.bind(_this4));
+          element.addEventListener("click", _this3._scrollToTarget.bind(_this3));
         });
       } else {
         this._elements.scrollBubbles.addEventListener("click", this._scrollToTarget.bind(this));
@@ -3494,7 +3522,6 @@ var ScoresController = /*#__PURE__*/function () {
         _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].showOnceOnMouseEnter(this._selectors.customBoardCalculation, "When the <b>Custom</b> board is selected, match results won't be calculated using the ranked leaderboards.<br><br>If you choose this mode a default rating will be set for every player. You can override players' board ratings by specifying a rating number with an \"r\" prefix at the end of the player line (e.g. r1620).<br><br>See <b>How to use</b> and <b>Table formatting</b>.", true);
         _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].showOnceOnMouseEnter(this._selectors.copyTableText, "Copies the <b>results</b> text to your clipboard.", true);
         _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].showOnceOnMouseEnter(this._selectors.copyTableLobby, "Copies the <b>!table results</b> text to your clipboard.<br><br>Paste the copied text into a Discord <b>#lobby-room</b> channel to generate an image.", true);
-        // Tippy.showOnceOnMouseEnter(this._selectors.copyImage, "Copies the <b>results image link</b> to your clipboard.<br><br>Paste the copied link to a Discord <b>#lobby-room</b> and the image will be shown.", true);
       }
 
       // -----------------------------------
@@ -3505,40 +3532,41 @@ var ScoresController = /*#__PURE__*/function () {
       this._elements.editScoresApply.addEventListener("click", this._onApplyEditScores.bind(this));
       this._elements.editScoresModal.addEventListener("hidden.bs.modal", this._onEditScoresModalClose.bind(this));
       this._elements.editScoresShowHelpModal.forEach(function (element) {
-        element.addEventListener("click", _this4._onShowEditScoresHelpModal.bind(_this4));
+        element.addEventListener("click", _this3._onShowEditScoresHelpModal.bind(_this3));
       });
       this._onTableCanvas();
-      _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("ui_loaded", true);
+      _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("ui_loaded");
     }
   }, {
     key: "_onAppStartFailed",
     value: function () {
-      var _onAppStartFailed2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8() {
-        var modalInstance, overlay;
-        return _regenerator().w(function (_context8) {
-          while (1) switch (_context8.n) {
+      var _onAppStartFailed2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7() {
+        var overlay;
+        return _regenerator().w(function (_context7) {
+          while (1) switch (_context7.n) {
             case 0:
-              _context8.n = 1;
+              _context7.n = 1;
               return _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].wait("ui_loaded");
             case 1:
               if (this._elements.appStartAlertModal) {
-                _context8.n = 2;
+                _context7.n = 2;
                 break;
               }
-              return _context8.a(2);
+              return _context7.a(2);
             case 2:
               if (!this._elements.appStartAlertModal.classList.contains('show')) {
-                _context8.n = 3;
+                _context7.n = 3;
                 break;
               }
-              return _context8.a(2);
+              return _context7.a(2);
             case 3:
               // Show modal with static backdrop
-              modalInstance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(this._elements.appStartAlertModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(this._elements.appStartAlertModal, {
+              this._showModal(this._elements.appStartAlertModal, {
                 backdrop: 'static',
                 keyboard: false
+              }).catch(function (e) {
+                return e;
               });
-              modalInstance.show();
 
               // Create overlay to block everything else
               overlay = document.createElement('div');
@@ -3563,9 +3591,9 @@ var ScoresController = /*#__PURE__*/function () {
                 return e.stopPropagation();
               });
             case 4:
-              return _context8.a(2);
+              return _context7.a(2);
           }
-        }, _callee8, this);
+        }, _callee7, this);
       }));
       function _onAppStartFailed() {
         return _onAppStartFailed2.apply(this, arguments);
@@ -3575,31 +3603,31 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_onTextareaObserve",
     value: function _onTextareaObserve() {
-      var _this5 = this;
+      var _this4 = this;
       if (!window.ResizeObserver) {
         window.ResizeObserver = resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_71__["default"];
       }
       var ro = new resize_observer_polyfill__WEBPACK_IMPORTED_MODULE_71__["default"](function (entries) {
-        if (_this5._timeouts.textarea.resizeRAF.timeout) {
+        if (_this4._timeouts.textarea.resizeRAF.timeout) {
           return;
         }
-        if (_this5._table.status === _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_EMPTY) {
+        if (_this4._table.status === _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_EMPTY) {
           return;
         }
-        if (_this5._timeouts.textarea.displaying) {
+        if (_this4._timeouts.textarea.displaying) {
           return;
         }
         var entry = entries[0];
         var width = Math.round(entry.contentRect.width);
 
         // ignore height-only changes
-        if (width === _this5._timeouts.textarea.resizeRAF.width) {
+        if (width === _this4._timeouts.textarea.resizeRAF.width) {
           return;
         }
-        _this5._timeouts.textarea.resizeRAF.width = width;
-        _this5._timeouts.textarea.resizeRAF.timeout = requestAnimationFrame(function () {
-          _this5._timeouts.textarea.resizeRAF.timeout = null;
-          _this5._resizeTextarea(true);
+        _this4._timeouts.textarea.resizeRAF.width = width;
+        _this4._timeouts.textarea.resizeRAF.timeout = requestAnimationFrame(function () {
+          _this4._timeouts.textarea.resizeRAF.timeout = null;
+          _this4._resizeTextarea(true);
         });
       });
       ro.observe(this._elements.textarea);
@@ -3640,39 +3668,43 @@ var ScoresController = /*#__PURE__*/function () {
         e.preventDefault();
         this._elements.textarea.select();
       } else if (e.key === "F1") {
-        this._onShowHowToUseModal(null);
+        this._showModal(this._elements.howToUseModal).catch(function (e) {
+          return e;
+        });
         e.preventDefault();
       } else if (e.key === "F2") {
-        this._onShowTableFormattingModal(null);
+        this._showModal(this._elements.tableFormattingModal).catch(function (e) {
+          return e;
+        });
         e.preventDefault();
       }
     }
   }, {
     key: "_onTextareaChange",
     value: function () {
-      var _onTextareaChange2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(e) {
+      var _onTextareaChange2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(e) {
         var table;
-        return _regenerator().w(function (_context9) {
-          while (1) switch (_context9.n) {
+        return _regenerator().w(function (_context8) {
+          while (1) switch (_context8.n) {
             case 0:
               table = this._getTable(true);
               if (!([_scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_PARSED, _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_PARSED_CUSTOM].includes(this._table.status) && _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].areTablesEqual(this._table.template ? this._table.template : "", table))) {
-                _context9.n = 1;
+                _context8.n = 1;
                 break;
               }
               this._parseTable().catch(function (e) {
                 return e;
               });
               this._saveTableLocalStorage();
-              return _context9.a(2);
+              return _context8.a(2);
             case 1:
               this._calculate().catch(function (e) {
                 return e;
               });
             case 2:
-              return _context9.a(2);
+              return _context8.a(2);
           }
-        }, _callee9, this);
+        }, _callee8, this);
       }));
       function _onTextareaChange(_x) {
         return _onTextareaChange2.apply(this, arguments);
@@ -3682,7 +3714,7 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_onCollapse",
     value: function _onCollapse(element) {
-      var _this6 = this;
+      var _this5 = this;
       var targetSelector = element.getAttribute('data-bs-target');
       if (!targetSelector) {
         return;
@@ -3692,12 +3724,12 @@ var ScoresController = /*#__PURE__*/function () {
         return;
       }
       collapseEl.addEventListener('shown.bs.collapse', function () {
-        _this6._processCanvasScrollBubble().catch(function (e) {
+        _this5._processCanvasScrollBubble().catch(function (e) {
           return e;
         });
       });
       collapseEl.addEventListener('hidden.bs.collapse', function () {
-        _this6._processCanvasScrollBubble().catch(function (e) {
+        _this5._processCanvasScrollBubble().catch(function (e) {
           return e;
         });
       });
@@ -3719,49 +3751,75 @@ var ScoresController = /*#__PURE__*/function () {
     }
   }, {
     key: "_onPresetChange",
-    value: function _onPresetChange(e) {
-      var _this7 = this;
-      var select = e.currentTarget;
-      this._presets.selected = select.options[select.selectedIndex];
-      this._onPresetBlur();
-      var table = this._getTable(true);
-      if (!table) {
-        this._changeToPreset(null);
-        return;
+    value: function () {
+      var _onPresetChange2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(e) {
+        var _this6 = this;
+        var select, table, totalScore, handleEnter, presetConfirmModal;
+        return _regenerator().w(function (_context9) {
+          while (1) switch (_context9.n) {
+            case 0:
+              select = e.currentTarget;
+              this._presets.selected = select.options[select.selectedIndex];
+              this._onPresetBlur();
+              table = this._getTable(true);
+              if (table) {
+                _context9.n = 1;
+                break;
+              }
+              this._changeToPreset(null);
+              return _context9.a(2);
+            case 1:
+              if (this._table.parsed) {
+                _context9.n = 2;
+                break;
+              }
+              this._changeToPreset(null);
+              return _context9.a(2);
+            case 2:
+              totalScore = this._table.parsed.teams.reduce(function (teamSum, team) {
+                return teamSum + team.players.reduce(function (playerSum, player) {
+                  return playerSum + player.scores.reduce(function (sum, score) {
+                    return sum + score;
+                  }, 0);
+                }, 0);
+              }, 0);
+              if (!(totalScore === 0)) {
+                _context9.n = 3;
+                break;
+              }
+              this._changeToPreset(null);
+              return _context9.a(2);
+            case 3:
+              // Listen for Enter key while modal is shown
+              handleEnter = function handleEnter(event) {
+                if (event.key === 'Enter') {
+                  event.preventDefault();
+                  _this6._changeToPreset(null);
+                  presetConfirmModal.hide();
+                }
+              };
+              this._elements.presetConfirmModal.addEventListener('keydown', handleEnter);
+              this._elements.presetConfirmModal.addEventListener('hidden.bs.modal', function () {
+                _this6._elements.presetConfirmModal.removeEventListener('keydown', handleEnter); // Remove listener when modal is hidden to avoid duplicate handling
+              }, {
+                once: true
+              });
+              _context9.n = 4;
+              return this._showModal(this._elements.presetConfirmModal).catch(function (e) {
+                return e;
+              });
+            case 4:
+              presetConfirmModal = _context9.v;
+            case 5:
+              return _context9.a(2);
+          }
+        }, _callee9, this);
+      }));
+      function _onPresetChange(_x2) {
+        return _onPresetChange2.apply(this, arguments);
       }
-      if (!this._table.parsed) {
-        this._changeToPreset(null);
-        return;
-      }
-      var totalScore = this._table.parsed.teams.reduce(function (teamSum, team) {
-        return teamSum + team.players.reduce(function (playerSum, player) {
-          return playerSum + player.scores.reduce(function (sum, score) {
-            return sum + score;
-          }, 0);
-        }, 0);
-      }, 0);
-      if (totalScore === 0) {
-        this._changeToPreset(null);
-        return;
-      }
-
-      // Listen for Enter key while modal is shown
-      var handleEnter = function handleEnter(event) {
-        if (event.key === 'Enter') {
-          event.preventDefault();
-          _this7._changeToPreset(null);
-          presetConfirmModal.hide();
-        }
-      };
-      this._elements.presetConfirmModal.addEventListener('keydown', handleEnter);
-      this._elements.presetConfirmModal.addEventListener('hidden.bs.modal', function () {
-        _this7._elements.presetConfirmModal.removeEventListener('keydown', handleEnter); // Remove listener when modal is hidden to avoid duplicate handling
-      }, {
-        once: true
-      });
-      var presetConfirmModal = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(this._elements.presetConfirmModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(this._elements.presetConfirmModal);
-      presetConfirmModal.show();
-    }
+      return _onPresetChange;
+    }()
   }, {
     key: "_onPresetBlur",
     value: function _onPresetBlur() {
@@ -3776,9 +3834,8 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_changeToPreset",
     value: function _changeToPreset(e) {
-      var _e$currentTarget;
-      var presetConfirmModal = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(this._elements.presetConfirmModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(this._elements.presetConfirmModal);
-      presetConfirmModal.hide();
+      var _e$currentTarget,
+        _this7 = this;
       if ((e === null || e === void 0 || (_e$currentTarget = e.currentTarget) === null || _e$currentTarget === void 0 || (_e$currentTarget = _e$currentTarget.dataset) === null || _e$currentTarget === void 0 ? void 0 : _e$currentTarget.cliboard) === "1") {
         _common_Copy__WEBPACK_IMPORTED_MODULE_63__["default"].text(this._getTable(true)).catch(function (e) {
           return e;
@@ -3786,97 +3843,80 @@ var ScoresController = /*#__PURE__*/function () {
       }
       var preset = this._tableParser.setBoards(this._data.boards.ranked).createPresetTemplate(this._presets.selected.dataset.idlobbytype, this._presets.selected.dataset.idgamemode);
       if (!preset) {
+        this._hideModal(this._elements.presetConfirmModal).catch(function (e) {
+          return e;
+        });
         return;
       }
       if (_scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_PARSED === this._table.status && _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].areTablesEqual("" !== this._table.template ? this._table.template : "", preset)) {
+        this._hideModal(this._elements.presetConfirmModal).catch(function (e) {
+          return e;
+        });
         return;
       }
       this._elements.textarea.value = preset;
       this._resizeTextarea(false);
-      this._calculate().catch(function (e) {
-        return e;
+      this._hideModal(this._elements.presetConfirmModal).then(function () {
+        _this7._calculate().catch(function (e) {
+          return e;
+        });
       });
     }
   }, {
-    key: "_onShowTableCanvasInNewTab",
+    key: "_onDownloadTableCanvas",
     value: function () {
-      var _onShowTableCanvasInNewTab2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(e) {
-        var openingTippyInstance, url;
+      var _onDownloadTableCanvas2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(e) {
+        var _tippy3;
+        var placement,
+          hideAfter,
+          tippy,
+          timeout,
+          _tippy,
+          canvasDataUrl,
+          _tippy2,
+          link,
+          _args0 = arguments;
         return _regenerator().w(function (_context0) {
           while (1) switch (_context0.n) {
             case 0:
-              openingTippyInstance = _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Opening...', 'top', 5000);
-              if (!this._canvas.canvas) {
-                _context0.n = 2;
-                break;
-              }
-              _context0.n = 1;
-              return this._canvas.getUrl();
-            case 1:
-              url = _context0.v;
-              if (!url) {
-                _context0.n = 2;
-                break;
-              }
-              window.open(url, "_blank");
-              openingTippyInstance.hide();
-              return _context0.a(2, true);
-            case 2:
-              openingTippyInstance.hide();
-              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Opening failed', 'top');
-              return _context0.a(2, false);
-          }
-        }, _callee0, this);
-      }));
-      function _onShowTableCanvasInNewTab(_x2) {
-        return _onShowTableCanvasInNewTab2.apply(this, arguments);
-      }
-      return _onShowTableCanvasInNewTab;
-    }()
-  }, {
-    key: "_onDownloadTableCanvas",
-    value: function () {
-      var _onDownloadTableCanvas2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1(e) {
-        var placement,
-          downloadingTippyInstance,
-          canvasDataUrl,
-          link,
-          _args1 = arguments;
-        return _regenerator().w(function (_context1) {
-          while (1) switch (_context1.n) {
-            case 0:
-              placement = _args1.length > 1 && _args1[1] !== undefined ? _args1[1] : "bottom";
-              downloadingTippyInstance = _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Downloading...', placement, 5000);
+              placement = _args0.length > 1 && _args0[1] !== undefined ? _args0[1] : "bottom";
+              hideAfter = _args0.length > 2 && _args0[2] !== undefined ? _args0[2] : 1000;
+              timeout = setTimeout(function () {
+                tippy = _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Downloading...', placement, 5000);
+              }, 100);
               if (this._getTable()) {
-                _context1.n = 1;
+                _context0.n = 1;
                 break;
               }
-              downloadingTippyInstance.hide();
+              clearTimeout(timeout);
+              (_tippy = tippy) === null || _tippy === void 0 || _tippy.hide();
               _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Nothing to download', placement);
-              return _context1.a(2, false);
+              return _context0.a(2, false);
             case 1:
               if (!this._canvas.canvas) {
-                _context1.n = 2;
+                _context0.n = 2;
                 break;
               }
               canvasDataUrl = this._canvas.dataUrl;
               if (!canvasDataUrl) {
-                _context1.n = 2;
+                _context0.n = 2;
                 break;
               }
               link = document.createElement("a");
               link.download = this._getImageTableFileName();
               link.href = canvasDataUrl;
               link.click();
-              downloadingTippyInstance.hide();
-              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Downloaded!', placement);
-              return _context1.a(2, true);
+              clearTimeout(timeout);
+              (_tippy2 = tippy) === null || _tippy2 === void 0 || _tippy2.hide();
+              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Downloaded!', placement, hideAfter);
+              return _context0.a(2, true);
             case 2:
-              downloadingTippyInstance.hide();
+              clearTimeout(timeout);
+              (_tippy3 = tippy) === null || _tippy3 === void 0 || _tippy3.hide();
               _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Download failed', placement);
-              return _context1.a(2, false);
+              return _context0.a(2, false);
           }
-        }, _callee1, this);
+        }, _callee0, this);
       }));
       function _onDownloadTableCanvas(_x3) {
         return _onDownloadTableCanvas2.apply(this, arguments);
@@ -3884,49 +3924,171 @@ var ScoresController = /*#__PURE__*/function () {
       return _onDownloadTableCanvas;
     }()
   }, {
-    key: "_onCopyTableCanvasToClipboard",
+    key: "_onShowTableCanvasInNewTab",
     value: function () {
-      var _onCopyTableCanvasToClipboard2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee10(e) {
-        var table, canvasDataUrl, url;
-        return _regenerator().w(function (_context10) {
-          while (1) switch (_context10.n) {
+      var _onShowTableCanvasInNewTab2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1(e) {
+        var _tippy6;
+        var tippy, timeout, dataUrl, _tippy5, win, _tippy4;
+        return _regenerator().w(function (_context1) {
+          while (1) switch (_context1.n) {
             case 0:
-              table = this._getTable();
-              canvasDataUrl = this._canvas.dataUrl;
-              if (!(canvasDataUrl && table)) {
-                _context10.n = 3;
+              timeout = setTimeout(function () {
+                tippy = _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Opening...', 'top', 5000);
+              }, 100);
+              if (!this._canvas.canvas) {
+                _context1.n = 3;
+                break;
+              }
+              dataUrl = this._canvas.dataUrl;
+              if (!dataUrl) {
+                _context1.n = 3;
+                break;
+              }
+              win = window.open(window.location.origin + "/image/#".concat(dataUrl));
+              if (win) {
+                _context1.n = 1;
+                break;
+              }
+              clearTimeout(timeout);
+              (_tippy4 = tippy) === null || _tippy4 === void 0 || _tippy4.hide();
+              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Opening failed', 'top');
+              return _context1.a(2, false);
+            case 1:
+              // Fallback if the window trims the dataUrl after #
+              win.onload = function () {
+                var img = win.document.getElementById('image');
+                img.src = dataUrl;
+                img.style.opacity = "1";
+                win.location.hash = dataUrl;
+              };
+              clearTimeout(timeout);
+              (_tippy5 = tippy) === null || _tippy5 === void 0 || _tippy5.hide();
+              _context1.n = 2;
+              return _common_Sleep__WEBPACK_IMPORTED_MODULE_78__["default"].for(800);
+            case 2:
+              this._closeContextMenu();
+              return _context1.a(2, true);
+            case 3:
+              clearTimeout(timeout);
+              (_tippy6 = tippy) === null || _tippy6 === void 0 || _tippy6.hide();
+              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Opening failed', 'top');
+              return _context1.a(2, false);
+          }
+        }, _callee1, this);
+      }));
+      function _onShowTableCanvasInNewTab(_x4) {
+        return _onShowTableCanvasInNewTab2.apply(this, arguments);
+      }
+      return _onShowTableCanvasInNewTab;
+    }()
+  }, {
+    key: "_onCopyTableCanvas",
+    value: function () {
+      var _onCopyTableCanvas2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee10(e) {
+        var _tippy9;
+        var tippy, timeout, blob, _tippy7, _tippy8, _t2;
+        return _regenerator().w(function (_context10) {
+          while (1) switch (_context10.p = _context10.n) {
+            case 0:
+              timeout = setTimeout(function () {
+                tippy = _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Copying...', "top", 5000);
+              }, 100);
+              if (!this._canvas.canvas) {
+                _context10.n = 6;
                 break;
               }
               _context10.n = 1;
-              return _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_58__["default"].saveCanvas(this._encryption.encryptBase64(canvasDataUrl), this._encryption.encryptBase64(table + "_" + (this._submittedMatch.active ? "1" : "0") + "_" + (this._isRanked() ? "1" : "0")));
+              return this._canvas.getBlob();
             case 1:
-              url = _context10.v;
-              if (!(null === url)) {
-                _context10.n = 2;
+              blob = _context10.v;
+              if (!blob) {
+                _context10.n = 6;
                 break;
               }
-              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Could not copy', 'bottom');
-              return _context10.a(2);
-            case 2:
-              _common_Copy__WEBPACK_IMPORTED_MODULE_63__["default"].text(url).then(function (data) {
-                return _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Copied to clipboard!', 'bottom');
-              }).catch(function (error) {
-                _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_58__["default"].logError("ScoresCalculationController._onCopyImageToClipboard: ".concat(error.message));
-                _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Copy failed', 'bottom');
-              });
-              _context10.n = 4;
-              break;
+              _context10.p = 2;
+              _context10.n = 3;
+              return _common_Copy__WEBPACK_IMPORTED_MODULE_63__["default"].image(blob);
             case 3:
-              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Nothing to copy', 'bottom');
+              clearTimeout(timeout);
+              (_tippy7 = tippy) === null || _tippy7 === void 0 || _tippy7.hide();
+              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Copied to clipboard!', 'top', 800);
+              _context10.n = 4;
+              return _common_Sleep__WEBPACK_IMPORTED_MODULE_78__["default"].for(800);
             case 4:
-              return _context10.a(2);
+              this._closeContextMenu();
+              return _context10.a(2, true);
+            case 5:
+              _context10.p = 5;
+              _t2 = _context10.v;
+              clearTimeout(timeout);
+              (_tippy8 = tippy) === null || _tippy8 === void 0 || _tippy8.hide();
+              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Copying failed', 'top');
+              return _context10.a(2, false);
+            case 6:
+              clearTimeout(timeout);
+              (_tippy9 = tippy) === null || _tippy9 === void 0 || _tippy9.hide();
+              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Copying failed', 'top');
+              return _context10.a(2, false);
           }
-        }, _callee10, this);
+        }, _callee10, this, [[2, 5]]);
       }));
-      function _onCopyTableCanvasToClipboard(_x4) {
-        return _onCopyTableCanvasToClipboard2.apply(this, arguments);
+      function _onCopyTableCanvas(_x5) {
+        return _onCopyTableCanvas2.apply(this, arguments);
       }
-      return _onCopyTableCanvasToClipboard;
+      return _onCopyTableCanvas;
+    }()
+  }, {
+    key: "_onCopyTableCanvasUrl",
+    value: function () {
+      var _onCopyTableCanvasUrl2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee11(e) {
+        var _tippy10;
+        var tippy, timeout, dataUrl, _tippy0, _tippy1, _t3;
+        return _regenerator().w(function (_context11) {
+          while (1) switch (_context11.p = _context11.n) {
+            case 0:
+              timeout = setTimeout(function () {
+                tippy = _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Copying...', "top", 5000);
+              }, 100);
+              if (!this._canvas.canvas) {
+                _context11.n = 5;
+                break;
+              }
+              dataUrl = this._canvas.dataUrl;
+              if (!dataUrl) {
+                _context11.n = 5;
+                break;
+              }
+              _context11.p = 1;
+              _context11.n = 2;
+              return _common_Copy__WEBPACK_IMPORTED_MODULE_63__["default"].text(dataUrl);
+            case 2:
+              clearTimeout(timeout);
+              (_tippy0 = tippy) === null || _tippy0 === void 0 || _tippy0.hide();
+              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Copied to clipboard!', 'top', 800);
+              _context11.n = 3;
+              return _common_Sleep__WEBPACK_IMPORTED_MODULE_78__["default"].for(800);
+            case 3:
+              this._closeContextMenu();
+              return _context11.a(2, true);
+            case 4:
+              _context11.p = 4;
+              _t3 = _context11.v;
+              clearTimeout(timeout);
+              (_tippy1 = tippy) === null || _tippy1 === void 0 || _tippy1.hide();
+              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Copying failed', 'top');
+              return _context11.a(2, false);
+            case 5:
+              clearTimeout(timeout);
+              (_tippy10 = tippy) === null || _tippy10 === void 0 || _tippy10.hide();
+              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].show(e.target, 'Copying failed', 'top');
+              return _context11.a(2, false);
+          }
+        }, _callee11, this, [[1, 4]]);
+      }));
+      function _onCopyTableCanvasUrl(_x6) {
+        return _onCopyTableCanvasUrl2.apply(this, arguments);
+      }
+      return _onCopyTableCanvasUrl;
     }()
   }, {
     key: "_getImageTableFileName",
@@ -4008,40 +4170,38 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_onSubmittedMatchClick",
     value: function () {
-      var _onSubmittedMatchClick2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee11(e) {
-        var _this8 = this;
-        var switchBackToScoresPredictionImage;
-        return _regenerator().w(function (_context11) {
-          while (1) switch (_context11.n) {
+      var _onSubmittedMatchClick2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee12(e) {
+        var switchBackToScoresPredictionImage, elements;
+        return _regenerator().w(function (_context12) {
+          while (1) switch (_context12.n) {
             case 0:
               // if the submitted match is ALREADY visible, calculate the scores predictions from textarea
               switchBackToScoresPredictionImage = this._submittedMatch.active;
               if (!switchBackToScoresPredictionImage) {
-                _context11.n = 1;
+                _context12.n = 2;
                 break;
               }
-              this._calculate().then(function (data) {
-                return data;
-              }).catch(function (e) {
+              _context12.n = 1;
+              return this._calculate().catch(function (e) {
                 return e;
-              }).finally(function () {
-                var elements = _this8._elements.submittedMatchSwitch;
-                elements.forEach(function (element, index) {
-                  element.textContent = "Show";
-                });
               });
-              return _context11.a(2);
             case 1:
+              elements = this._elements.submittedMatchSwitch;
+              elements.forEach(function (element, index) {
+                element.textContent = "Show";
+              });
+              return _context12.a(2);
+            case 2:
               // button is in off state (user sees "Show" button) -> calculate submitted match
               this._calculateSubmitted().catch(function (e) {
                 return e;
               });
-            case 2:
-              return _context11.a(2);
+            case 3:
+              return _context12.a(2);
           }
-        }, _callee11, this);
+        }, _callee12, this);
       }));
-      function _onSubmittedMatchClick(_x5) {
+      function _onSubmittedMatchClick(_x7) {
         return _onSubmittedMatchClick2.apply(this, arguments);
       }
       return _onSubmittedMatchClick;
@@ -4049,30 +4209,22 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_onShowHowToUseModal",
     value: function _onShowHowToUseModal(e) {
-      var _this9 = this;
-      // Hide "Table Formatting" modal
-      var tableModalInstance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(this._elements.tableFormattingModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(this._elements.tableFormattingModal);
-      tableModalInstance.hide();
-
-      // Show the second modal after 375ms
-      setTimeout(function () {
-        var howModalInstance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(_this9._elements.howToUseModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(_this9._elements.howToUseModal);
-        howModalInstance.show();
-      }, 375);
+      var _this8 = this;
+      this._hideModal(this._elements.tableFormattingModal).then(function () {
+        _this8._showModal(_this8._elements.howToUseModal).catch(function (e) {
+          return e;
+        });
+      });
     }
   }, {
     key: "_onShowTableFormattingModal",
     value: function _onShowTableFormattingModal(e) {
-      var _this0 = this;
-      // Hide "How to Use" modal
-      var howModalInstance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(this._elements.howToUseModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(this._elements.howToUseModal);
-      howModalInstance.hide();
-
-      // Show "Table Formatting" modal after 375ms
-      setTimeout(function () {
-        var tableModalInstance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(_this0._elements.tableFormattingModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(_this0._elements.tableFormattingModal);
-        tableModalInstance.show();
-      }, 375);
+      var _this9 = this;
+      this._hideModal(this._elements.howToUseModal).then(function () {
+        _this9._showModal(_this9._elements.tableFormattingModal).catch(function (e) {
+          return e;
+        });
+      });
     }
   }, {
     key: "_scrollToTarget",
@@ -4101,7 +4253,7 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_onResize",
     value: function _onResize(e) {
-      var _this1 = this;
+      var _this0 = this;
       // Only react when crossing the breakpoint
       var wasSmall = window.innerWidth < 1082;
       if (wasSmall !== this._isSmallScreen) {
@@ -4111,7 +4263,7 @@ var ScoresController = /*#__PURE__*/function () {
       // Run on resize actions
       clearTimeout(this._timeouts.resize);
       this._timeouts.resize = setTimeout(function () {
-        _this1._processCanvasScrollBubble().catch(function (e) {
+        _this0._processCanvasScrollBubble().catch(function (e) {
           return e;
         });
       }, 150);
@@ -4119,10 +4271,10 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_onScroll",
     value: function _onScroll(e) {
-      var _this10 = this;
+      var _this1 = this;
       clearTimeout(this._timeouts.scroll);
       this._timeouts.scroll = setTimeout(function () {
-        _this10._processCanvasScrollBubble().catch(function (e) {
+        _this1._processCanvasScrollBubble().catch(function (e) {
           return e;
         });
       }, 150);
@@ -4140,16 +4292,18 @@ var ScoresController = /*#__PURE__*/function () {
         }
         return;
       }
-      this._tableControl.setBoard(this._getBoard()).setParsedTable(this._table.parsed).setIsRanked(this._isRanked()).loadControls();
+      this._tableControl.setBoard(this._getBoard()).setParsedTable(this._table.parsed).setIsRanked(this._isRanked()).loadControls().catch(function (e) {
+        return e;
+      });
     }
   }, {
     key: "_onApplyEditScores",
     value: function _onApplyEditScores(e) {
-      var _this11 = this;
+      var _this10 = this;
       var result = this._tableControl.applyChanges();
-      this._hideModalAsync(this._elements.editScoresModal).then(function () {
+      this._hideModal(this._elements.editScoresModal).then(function () {
         if (result) {
-          _this11._calculate().catch(function (e) {
+          _this10._calculate().catch(function (e) {
             return e;
           });
         }
@@ -4163,13 +4317,14 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_onShowEditScoresHelpModal",
     value: function _onShowEditScoresHelpModal(e) {
-      var instance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(this._elements.editScoresHelpModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(this._elements.editScoresHelpModal);
-      instance.show();
+      this._showModal(this._elements.editScoresHelpModal).catch(function (e) {
+        return e;
+      });
     }
   }, {
     key: "_onTableCanvas",
     value: function _onTableCanvas() {
-      var _this12 = this;
+      var _this11 = this;
       if (!ScoresController.USE_CUSTOM_CONTEXT_MENU) {
         this._elements.tableCanvas.addEventListener('click', this._onEditScores.bind(this));
         return;
@@ -4198,6 +4353,10 @@ var ScoresController = /*#__PURE__*/function () {
 
       // True while more than one pointer is active (pinch / zoom)
       var isMultiTouch = false;
+
+      // Handles blocking opening scores via click on the table canvas for a while when the context menu was triggered
+      var contextMenuCooldown = false;
+      var contextMenuBlockTime = 500; // ms
 
       // Clears the long-press timer
       var clearHold = function clearHold() {
@@ -4239,7 +4398,11 @@ var ScoresController = /*#__PURE__*/function () {
         // Start hold timer → triggers context menu on hold (if the timeout is not cleared later)
         holdTimer = setTimeout(function () {
           holdTimer = null;
-          _this12._showContextMenu();
+          contextMenuCooldown = true;
+          setTimeout(function () {
+            contextMenuCooldown = false;
+          }, contextMenuBlockTime);
+          _this11._showContextMenu();
           holding = true;
         }, holdDelay);
 
@@ -4247,13 +4410,13 @@ var ScoresController = /*#__PURE__*/function () {
         e.preventDefault();
 
         // Capture the pointer so we continue receiving events even if it leaves the element
-        _this12._elements.tableCanvas.setPointerCapture(e.pointerId);
+        _this11._elements.tableCanvas.setPointerCapture(e.pointerId);
       });
 
       // Fired when a pointer moves
       this._elements.tableCanvas.addEventListener('pointermove', function (e) {
         // Ignore events for pointers we did not capture
-        if (!_this12._elements.tableCanvas.hasPointerCapture(e.pointerId)) return;
+        if (!_this11._elements.tableCanvas.hasPointerCapture(e.pointerId)) return;
 
         // Only apply movement logic on touch devices
         if (!_common_Mobile__WEBPACK_IMPORTED_MODULE_69__["default"].isTouchDevice()) return;
@@ -4307,7 +4470,7 @@ var ScoresController = /*#__PURE__*/function () {
         }
 
         // Release pointer capture
-        _this12._elements.tableCanvas.releasePointerCapture(e.pointerId);
+        _this11._elements.tableCanvas.releasePointerCapture(e.pointerId);
 
         // Do nothing if this interaction was a hold, move, or multitouch
         if (isMultiTouch || holding || moved) return;
@@ -4316,66 +4479,57 @@ var ScoresController = /*#__PURE__*/function () {
         clearHold();
 
         // Treat as a valid tap/click
-        _this12._onEditScores(e);
+        // But only trigger if no long-press happened and cooldown is over
+        if (!isMultiTouch && !holding && !moved && !contextMenuCooldown) {
+          _this11._onEditScores(e);
+        }
       });
 
       // Prevent the default browser context menu and show custom one instead
       this._elements.tableCanvas.addEventListener('contextmenu', function (e) {
         e.preventDefault();
-        _this12._showContextMenu();
+        _this11._showContextMenu();
       });
 
       // Context menu: download option
       this._elements.contextMenuDownload.addEventListener('click', function (e) {
-        _this12._onDownloadTableCanvas(e, "top").then(/*#__PURE__*/function () {
-          var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee12(result) {
-            return _regenerator().w(function (_context12) {
-              while (1) switch (_context12.n) {
+        _this11._onDownloadTableCanvas(e, "top", 800).then(/*#__PURE__*/function () {
+          var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee13(result) {
+            return _regenerator().w(function (_context13) {
+              while (1) switch (_context13.n) {
                 case 0:
                   if (!result) {
-                    _context12.n = 2;
+                    _context13.n = 2;
                     break;
                   }
-                  _context12.n = 1;
-                  return _common_Sleep__WEBPACK_IMPORTED_MODULE_78__["default"].for(500);
+                  _context13.n = 1;
+                  return _common_Sleep__WEBPACK_IMPORTED_MODULE_78__["default"].for(800);
                 case 1:
-                  _this12._closeContextMenu();
+                  _this11._closeContextMenu();
                 case 2:
-                  return _context12.a(2);
+                  return _context13.a(2);
               }
-            }, _callee12);
+            }, _callee13);
           }));
-          return function (_x6) {
-            return _ref4.apply(this, arguments);
+          return function (_x8) {
+            return _ref3.apply(this, arguments);
           };
         }());
       });
 
       // Context menu: view image option
-      this._elements.contextMenuView.addEventListener('click', function (e) {
-        _this12._onShowTableCanvasInNewTab(e).then(/*#__PURE__*/function () {
-          var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee13(result) {
-            return _regenerator().w(function (_context13) {
-              while (1) switch (_context13.n) {
-                case 0:
-                  if (result) {
-                    _this12._closeContextMenu();
-                  }
-                case 1:
-                  return _context13.a(2);
-              }
-            }, _callee13);
-          }));
-          return function (_x7) {
-            return _ref5.apply(this, arguments);
-          };
-        }());
-      });
+      this._elements.contextMenuView.addEventListener('click', this._onShowTableCanvasInNewTab.bind(this));
 
-      // Context menu: edit scores option
+      // Context menu: copy image option
+      if (navigator.clipboard && navigator.clipboard.write) {
+        this._elements.contextMenuCopy.addEventListener('click', this._onCopyTableCanvas.bind(this));
+      }
+
+      // Context menu: copy image url option
+      this._elements.contextMenuCopyUrl.addEventListener('click', this._onCopyTableCanvasUrl.bind(this));
       this._elements.contextMenuEditScores.addEventListener('click', function (e) {
-        _this12._closeContextMenu();
-        _this12._onEditScores(e);
+        _this11._closeContextMenu();
+        _this11._onEditScores(e);
       });
     }
   }, {
@@ -4384,14 +4538,16 @@ var ScoresController = /*#__PURE__*/function () {
       if (!this._getTable()) {
         return;
       }
-      var instance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(this._elements.contextMenuModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(this._elements.contextMenuModal);
-      instance.show();
+      this._showModal(this._elements.contextMenuModal).catch(function (e) {
+        return e;
+      });
     }
   }, {
     key: "_closeContextMenu",
     value: function _closeContextMenu() {
-      var instance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(this._elements.contextMenuModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(this._elements.contextMenuModal);
-      instance.hide();
+      this._hideModal(this._elements.contextMenuModal).catch(function (e) {
+        return e;
+      });
     }
   }, {
     key: "_nullifyTableControl",
@@ -4410,161 +4566,186 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_calculate",
     value: function () {
-      var _calculate2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee14() {
-        var _this13 = this;
-        var table, idOld, matchResults, result, image, animate;
-        return _regenerator().w(function (_context14) {
-          while (1) switch (_context14.n) {
+      var _calculate2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee15() {
+        var _this12 = this;
+        return _regenerator().w(function (_context15) {
+          while (1) switch (_context15.n) {
             case 0:
-              _context14.n = 1;
-              return _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].wait("calculate");
-            case 1:
-              this._calculation.processing = true;
-              this._calculation.time.started_at = new Date();
+              return _context15.a(2, new Promise(function (resolve, reject) {
+                setTimeout(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee14() {
+                  var table, idOld, matchResults, result, image, animate;
+                  return _regenerator().w(function (_context14) {
+                    while (1) switch (_context14.n) {
+                      case 0:
+                        _context14.n = 1;
+                        return _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].wait("calculate", true);
+                      case 1:
+                        _this12._calculation.processing = true;
+                        _this12._calculation.time.started_at = new Date();
 
-              // Start "loading"
-              this._dimTableCanvas();
-              this._disableButtons();
-              this._table.status_before_calculation = this._table.status;
-              this._setSubmittedMatchOff(!this._submittedMatch.active);
+                        // Start "loading"
+                        if (!(_this12._appStart.status !== "starting")) {
+                          _context14.n = 4;
+                          break;
+                        }
+                        _this12._dimTableCanvas(_this12._calculation.time.perceptual_minimum);
 
-              // Remove current canvas image (if exists)
-              this._canvas.canvas = null;
-              this._canvas.url = "";
+                        // Wait a bit, so the dim effect can take place
+                        _context14.n = 2;
+                        return new Promise(requestAnimationFrame);
+                      case 2:
+                        _context14.n = 3;
+                        return new Promise(requestAnimationFrame);
+                      case 3:
+                        _this12._timeouts.buttons = setTimeout(function () {
+                          _this12._disableButtons();
+                          clearTimeout(_this12._timeouts.buttons);
+                        }, 200);
+                        _this12._table.status_before_calculation = _this12._table.status;
+                        _this12._setSubmittedMatchOff(!_this12._submittedMatch.active);
+                      case 4:
+                        // Show calculation button (after 100ms, if we finish before that, we don't show calculation button)
+                        table = _this12._getTable(true);
+                        _this12._timeouts.table.calculating = setTimeout(function () {
+                          if (table) {
+                            _this12._showScoresCalculationCalculatingAlert();
+                          }
+                        }, 200);
 
-              // Show calculation button (after 100ms, if we finish before that, we don't show calculation button)
-              table = this._getTable(true);
-              this._timeouts.table.calculating = setTimeout(function () {
-                if (table) {
-                  _this13._showScoresCalculationCalculatingAlert();
-                }
-              }, 200);
+                        // Save old table ID for future reference
+                        idOld = _this12._table.parsed ? _this12._table.parsed.id : ""; // Parse table
+                        _context14.n = 5;
+                        return _this12._parseTable().catch(function (e) {
+                          return e;
+                        });
+                      case 5:
+                        if (!(_scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_EMPTY === _this12._table.status)) {
+                          _context14.n = 6;
+                          break;
+                        }
+                        clearTimeout(_this12._timeouts.buttons);
+                        clearTimeout(_this12._timeouts.table.calculating);
+                        _this12._hideSubmittedMatchButtons().catch(function (e) {
+                          return e;
+                        });
+                        _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].disableBySelector(_this12._selectors.scoresAlert);
+                        _this12._alertDialog.hideAsync(_common_AlertDialog__WEBPACK_IMPORTED_MODULE_59__["default"].ALERT_SCORES, {
+                          "triggerType": _common_AlertDialog__WEBPACK_IMPORTED_MODULE_59__["default"].TRIGGER_TYPE_INSTANT,
+                          "fadeTime": ScoresController.ANIMATION_TIME
+                        }).catch(function (e) {
+                          return e;
+                        });
+                        _this12._saveTableLocalStorage();
+                        _this12._hideTableCanvas();
+                        _this12._enableButtons();
+                        _this12._nullifyTableControl();
+                        _this12._calculation.time.ended_at = new Date();
+                        _this12._calculation.processing = false;
+                        _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("calculate", false);
+                        resolve();
+                        return _context14.a(2);
+                      case 6:
+                        if (!(_this12._table.status === _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_PARSED_CUSTOM || _this12._table.status === _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_PARSED)) {
+                          _context14.n = 15;
+                          break;
+                        }
+                        // save current table to localstorage, so users won't lose the table on window close
+                        _this12._saveTableLocalStorage();
 
-              // Save old table ID for future reference
-              idOld = this._table.parsed ? this._table.parsed.id : ""; // Parse table
-              _context14.n = 2;
-              return this._parseTable().catch(function (e) {
-                return e;
-              });
-            case 2:
-              if (!(_scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_EMPTY === this._table.status)) {
-                _context14.n = 3;
-                break;
-              }
-              clearTimeout(this._timeouts.table.calculating);
-              this._hideSubmittedMatchButtons().catch(function (e) {
-                return e;
-              });
-              _common_Tippy__WEBPACK_IMPORTED_MODULE_76__["default"].disableBySelector(this._selectors.scoresAlert);
-              this._alertDialog.hideAsync(_common_AlertDialog__WEBPACK_IMPORTED_MODULE_59__["default"].ALERT_SCORES, {
-                "triggerType": _common_AlertDialog__WEBPACK_IMPORTED_MODULE_59__["default"].TRIGGER_TYPE_INSTANT,
-                "fadeTime": ScoresController.ANIMATION_TIME
-              }).catch(function (e) {
-                return e;
-              });
-              this._saveTableLocalStorage();
-              this._hideTableCanvas();
-              this._enableButtons();
-              this._nullifyTableControl();
-              this._calculation.time.ended_at = new Date();
-              this._calculation.processing = false;
-              _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("calculate");
-              return _context14.a(2);
-            case 3:
-              if (!(this._table.status === _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_PARSED_CUSTOM || this._table.status === _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_PARSED)) {
-                _context14.n = 12;
-                break;
-              }
-              // save current table to localstorage, so users won't lose the table on window close
-              this._saveTableLocalStorage();
+                        // now predicts scores
+                        matchResults = _this12._predictScores();
+                        if (matchResults) {
+                          _context14.n = 7;
+                          break;
+                        }
+                        _this12._calculation.time.ended_at = new Date();
+                        _this12._endCalculationAsError();
+                        resolve();
+                        return _context14.a(2);
+                      case 7:
+                        _context14.n = 8;
+                        return _this12._generateTableCanvas(matchResults);
+                      case 8:
+                        result = _context14.v;
+                        if (result) {
+                          _context14.n = 9;
+                          break;
+                        }
+                        _this12._calculation.time.ended_at = new Date();
+                        _this12._endCalculationAsError();
+                        resolve();
+                        return _context14.a(2);
+                      case 9:
+                        _context14.n = 10;
+                        return _this12._htmlToCanvas();
+                      case 10:
+                        image = _context14.v;
+                        if (image) {
+                          _context14.n = 11;
+                          break;
+                        }
+                        _this12._calculation.time.ended_at = new Date();
+                        _this12._endCalculationAsError();
+                        resolve();
+                        return _context14.a(2);
+                      case 11:
+                        if (!(_this12._appStart.status === "starting" && _this12._appStart.preloader > 0 && new Date() - _this12._appStart.createdAt < _this12._appStart.preloader)) {
+                          _context14.n = 13;
+                          break;
+                        }
+                        _context14.n = 12;
+                        return _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].wait("preloader");
+                      case 12:
+                        _this12._removeCanvasPreloader();
+                      case 13:
+                        // Display the "canvas"
+                        animate = _this12._table.status_before_calculation === _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_EMPTY;
+                        _context14.n = 14;
+                        return _this12._displayTableCanvas(image, animate);
+                      case 14:
+                        // Disable buttons timeout if the processing was quick
+                        clearTimeout(_this12._timeouts.buttons);
 
-              // now predicts scores
-              matchResults = this._predictScores();
-              if (matchResults) {
-                _context14.n = 4;
-                break;
-              }
-              this._calculation.time.ended_at = new Date();
-              this._endCalculationAsError();
-              return _context14.a(2);
-            case 4:
-              _context14.n = 5;
-              return this._generateTableCanvas(matchResults);
-            case 5:
-              result = _context14.v;
-              if (result) {
-                _context14.n = 6;
-                break;
-              }
-              this._calculation.time.ended_at = new Date();
-              this._endCalculationAsError();
-              return _context14.a(2);
-            case 6:
-              // Convert html to image (and append it to the container)
-              console.time("e");
-              _context14.n = 7;
-              return this._convertHTMLToImage();
-            case 7:
-              image = _context14.v;
-              if (image) {
-                _context14.n = 8;
-                break;
-              }
-              this._calculation.time.ended_at = new Date();
-              this._endCalculationAsError();
-              return _context14.a(2);
-            case 8:
-              console.timeEnd("e");
+                        // Add cursor pointer to the canvas
+                        _this12._elements.tableCanvas.style.cursor = "pointer";
 
-              // Wait a bit on the first load to properly show preloader
-              if (!(this._appStart.status === "starting" && this._appStart.preloader > 0 && new Date() - this._appStart.createdAt < this._appStart.preloader)) {
-                _context14.n = 10;
-                break;
-              }
-              _context14.n = 9;
-              return _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].wait("preloader");
-            case 9:
-              this._removeCanvasPreloader();
-            case 10:
-              // Display the "canvas"
-              animate = true;
-              _context14.n = 11;
-              return this._displayTableCanvas(image, animate, this._calculation.time);
-            case 11:
-              // Add cursor pointer to the canvas
-              this._elements.tableCanvas.style.cursor = "pointer";
+                        // Return the page into its initial state
 
-              // Return the page into its initial state
+                        // Clear timeout for showing "calculating" button
+                        clearTimeout(_this12._timeouts.table.calculating);
 
-              // Clear timeout for showing "calculating" button
-              clearTimeout(this._timeouts.table.calculating);
+                        // Enable buttons
+                        _this12._enableButtons();
 
-              // Enable buttons
-              this._enableButtons();
+                        // Show success
+                        _this12._showScoresCalculationSuccessAlert();
 
-              // Show success
-              this._showScoresCalculationSuccessAlert();
+                        // Show / Hide submitted match buttons
+                        _this12._showHideSubmittedMatchButtons().catch(function (e) {
+                          return e;
+                        });
 
-              // Show / Hide submitted match buttons
-              this._showHideSubmittedMatchButtons().catch(function (e) {
-                return e;
-              });
-
-              // Reset other settings
-              if (idOld !== this._table.parsed.id) {
-                this._resetTableControl();
-              }
-              this._calculation.time.ended_at = new Date();
-              this._calculation.processing = false;
-              _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("calculate");
-              return _context14.a(2);
-            case 12:
-              this._calculation.time.ended_at = new Date();
-              this._endCalculationAsError();
-            case 13:
-              return _context14.a(2);
+                        // Reset other settings
+                        if (idOld !== _this12._table.parsed.id) {
+                          _this12._resetTableControl();
+                        }
+                        _this12._calculation.time.ended_at = new Date();
+                        _this12._calculation.processing = false;
+                        _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("calculate", false);
+                        resolve();
+                        return _context14.a(2);
+                      case 15:
+                        _this12._calculation.time.ended_at = new Date();
+                        _this12._endCalculationAsError();
+                        resolve();
+                      case 16:
+                        return _context14.a(2);
+                    }
+                  }, _callee14);
+                })), 0);
+              }));
           }
-        }, _callee14, this);
+        }, _callee15);
       }));
       function _calculate() {
         return _calculate2.apply(this, arguments);
@@ -4574,6 +4755,7 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_endCalculationAsError",
     value: function _endCalculationAsError() {
+      clearTimeout(this._timeouts.buttons);
       clearTimeout(this._timeouts.table.calculating);
       this._elements.tableCanvas.style.cursor = "";
       this._dimTableCanvas();
@@ -4583,111 +4765,141 @@ var ScoresController = /*#__PURE__*/function () {
       this._showScoresCalculationErrorAlert();
       this._enableButtons();
       this._calculation.processing = false;
-      _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("calculate");
+      _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("calculate", false);
     }
   }, {
     key: "_calculateSubmitted",
     value: function () {
-      var _calculateSubmitted2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee15() {
-        var _this14 = this;
-        var scoresCalculation, matchResults, result, image, animate;
-        return _regenerator().w(function (_context15) {
-          while (1) switch (_context15.n) {
+      var _calculateSubmitted2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee17() {
+        var _this13 = this;
+        return _regenerator().w(function (_context17) {
+          while (1) switch (_context17.n) {
             case 0:
-              // Remove current canvas image (if exists)
-              this._canvas.canvas = null;
-              this._canvas.url = "";
+              return _context17.a(2, new Promise(function (resolve, reject) {
+                setTimeout(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee16() {
+                  var scoresCalculation, matchResults, result, image, animate;
+                  return _regenerator().w(function (_context16) {
+                    while (1) switch (_context16.n) {
+                      case 0:
+                        // Remove current canvas image (if exists)
+                        _this13._canvas.canvas = null;
+                        _this13._canvas.url = "";
 
-              // remove board parameter, because we should be in the ranked board
-              _common_Url__WEBPACK_IMPORTED_MODULE_77__["default"].removeParameters(["board"]);
+                        // remove board parameter, because we should be in the ranked board
+                        _common_Url__WEBPACK_IMPORTED_MODULE_77__["default"].removeParameters(["board"]);
 
-              // if this submitted match is flagged as disabled, or we don't want to use ranked boards, do nothing
-              if (!(this._submittedMatch.disabled.includes(this._table.parsed.number) || !this._isRanked())) {
-                _context15.n = 1;
-                break;
-              }
-              this._calculation.error = "Could not load submitted match.<br>Refresh the page and try again.";
-              this._endCalculationAsError();
-              return _context15.a(2);
-            case 1:
-              // Show calculation button (after 100ms, if we finish before that, we don't show calculation button)
-              this._timeouts.table.calculating = setTimeout(function () {
-                _this14._showScoresCalculationCalculatingAlert();
-              }, 200);
+                        // if this submitted match is flagged as disabled, or we don't want to use ranked boards, do nothing
+                        if (!(_this13._submittedMatch.disabled.includes(_this13._table.parsed.number) || !_this13._isRanked())) {
+                          _context16.n = 1;
+                          break;
+                        }
+                        _this13._calculation.error = "Could not load submitted match.<br>Refresh the page and try again.";
+                        _this13._endCalculationAsError();
+                        resolve();
+                        return _context16.a(2);
+                      case 1:
+                        // Show calculation button (after 100ms, if we finish before that, we don't show calculation button)
+                        _this13._timeouts.table.calculating = setTimeout(function () {
+                          _this13._showScoresCalculationCalculatingAlert();
+                        }, 200);
 
-              // submitted match is already parsed
-              // it was parsed while checking if exists inside this._showHideSubmittedMatchButtons() method
+                        // submitted match is already parsed
+                        // it was parsed while checking if exists inside this._showHideSubmittedMatchButtons() method
 
-              // if it couldn't be fetched, then show error and flag as disabled
-              if (this._submittedMatch.parsed) {
-                _context15.n = 2;
-                break;
-              }
-              this._calculation.error = "Could not load submitted match.<br>Refresh the page and try again.";
-              this._submittedMatch.disabled.push(this._table.parsed.number);
-              this._endCalculationAsError();
-              return _context15.a(2);
-            case 2:
-              this._submittedMatch.time.started_at = new Date();
-              this._dimTableCanvas();
-              this._disableButtons();
-              this._table.status_before_calculation = this._table.status;
+                        // if it couldn't be fetched, then show error and flag as disabled
+                        if (_this13._submittedMatch.parsed) {
+                          _context16.n = 2;
+                          break;
+                        }
+                        _this13._calculation.error = "Could not load submitted match.<br>Refresh the page and try again.";
+                        _this13._submittedMatch.disabled.push(_this13._table.parsed.number);
+                        _this13._endCalculationAsError();
+                        resolve();
+                        return _context16.a(2);
+                      case 2:
+                        _this13._submittedMatch.time.started_at = new Date();
+                        _this13._dimTableCanvas(_this13._submittedMatch.time.perceptual_minimum);
 
-              // Calculate submitted match results
-              scoresCalculation = new _scores_calculation_ScoresCalculation__WEBPACK_IMPORTED_MODULE_72__["default"]();
-              matchResults = scoresCalculation.calculateSubmittedMatch(this._submittedMatch.parsed, this._getBoard()); // Couldn't calculate match results, calculate prediction at least
-              if (matchResults) {
-                _context15.n = 3;
-                break;
-              }
-              this._submittedMatch.time.ended_at = new Date();
-              this._calculation.error = scoresCalculation.error;
-              this._submittedMatch.disabled.push(this._table.parsed.number);
-              this._endCalculationAsError();
-              return _context15.a(2);
-            case 3:
-              _context15.n = 4;
-              return this._generateTableCanvas(matchResults, true);
-            case 4:
-              result = _context15.v;
-              if (result) {
-                _context15.n = 5;
-                break;
-              }
-              this._submittedMatch.time.ended_at = new Date();
-              this._submittedMatch.disabled.push(this._table.parsed.number);
-              this._endCalculationAsError();
-              return _context15.a(2);
-            case 5:
-              _context15.n = 6;
-              return this._convertHTMLToImage();
-            case 6:
-              image = _context15.v;
-              if (image) {
-                _context15.n = 7;
-                break;
-              }
-              this._calculation.time.ended_at = new Date();
-              this._endCalculationAsError();
-              return _context15.a(2);
-            case 7:
-              // Display the "canvas"
-              animate = true;
-              _context15.n = 8;
-              return this._displayTableCanvas(image, animate, this._submittedMatch.time);
-            case 8:
-              clearTimeout(this._timeouts.table.calculating);
-              this._showScoresCalculationSuccessAlert();
-              this._submittedMatch.active = true;
-              this._submittedMatch.time.ended_at = new Date();
-              this._showSubmittedMatchButtons().catch(function (e) {
-                return e;
-              });
-              this._enableButtons();
-            case 9:
-              return _context15.a(2);
+                        // Wait a bit, so the dim effect can take place
+                        _context16.n = 3;
+                        return new Promise(requestAnimationFrame);
+                      case 3:
+                        _context16.n = 4;
+                        return new Promise(requestAnimationFrame);
+                      case 4:
+                        _this13._timeouts.buttons = setTimeout(function () {
+                          _this13._disableButtons();
+                          clearTimeout(_this13._timeouts.buttons);
+                        }, 200);
+                        _this13._table.status_before_calculation = _this13._table.status;
+
+                        // Calculate submitted match results
+                        scoresCalculation = new _scores_calculation_ScoresCalculation__WEBPACK_IMPORTED_MODULE_72__["default"]();
+                        matchResults = scoresCalculation.calculateSubmittedMatch(_this13._submittedMatch.parsed, _this13._getBoard()); // Couldn't calculate match results, calculate prediction at least
+                        if (matchResults) {
+                          _context16.n = 5;
+                          break;
+                        }
+                        _this13._submittedMatch.time.ended_at = new Date();
+                        _this13._calculation.error = scoresCalculation.error;
+                        _this13._submittedMatch.disabled.push(_this13._table.parsed.number);
+                        _this13._endCalculationAsError();
+                        resolve();
+                        return _context16.a(2);
+                      case 5:
+                        _context16.n = 6;
+                        return _this13._generateTableCanvas(matchResults, true);
+                      case 6:
+                        result = _context16.v;
+                        if (result) {
+                          _context16.n = 7;
+                          break;
+                        }
+                        _this13._submittedMatch.time.ended_at = new Date();
+                        _this13._submittedMatch.disabled.push(_this13._table.parsed.number);
+                        _this13._endCalculationAsError();
+                        resolve();
+                        return _context16.a(2);
+                      case 7:
+                        _context16.n = 8;
+                        return _this13._htmlToCanvas();
+                      case 8:
+                        image = _context16.v;
+                        if (image) {
+                          _context16.n = 9;
+                          break;
+                        }
+                        _this13._calculation.time.ended_at = new Date();
+                        _this13._endCalculationAsError();
+                        resolve();
+                        return _context16.a(2);
+                      case 9:
+                        // Display the "canvas"
+                        animate = false;
+                        _context16.n = 10;
+                        return _this13._displayTableCanvas(image, animate);
+                      case 10:
+                        // Disable buttons timeout if the processing was quick
+                        clearTimeout(_this13._timeouts.buttons);
+
+                        // Other restore actions
+                        clearTimeout(_this13._timeouts.table.calculating);
+                        _this13._showScoresCalculationSuccessAlert();
+                        _this13._submittedMatch.active = true;
+                        _this13._submittedMatch.time.ended_at = new Date();
+                        _this13._showSubmittedMatchButtons().catch(function (e) {
+                          return e;
+                        });
+                        _this13._enableButtons();
+                        resolve();
+                      case 11:
+                        return _context16.a(2);
+                    }
+                  }, _callee16);
+                })), 0);
+              }));
           }
-        }, _callee15, this);
+        }, _callee17);
       }));
       function _calculateSubmitted() {
         return _calculateSubmitted2.apply(this, arguments);
@@ -4697,18 +4909,18 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_parseTable",
     value: function () {
-      var _parseTable2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee16() {
-        var table, parsedTable, _t2;
-        return _regenerator().w(function (_context16) {
-          while (1) switch (_context16.p = _context16.n) {
+      var _parseTable2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee18() {
+        var table, parsedTable, _t4;
+        return _regenerator().w(function (_context18) {
+          while (1) switch (_context18.p = _context18.n) {
             case 0:
               this._tableParser.setBoards(this._data.boards.ranked);
-              _context16.p = 1;
+              _context18.p = 1;
               // Parse textarea table template(s) string into an array of lobbies
               // if there is more than 1 lobby in the table template(s) string then get all lobbies that match the lorenzi board ID of the first lobby in the table template(s) string
               table = this._getTable(true);
               if (!("" === table)) {
-                _context16.n = 2;
+                _context18.n = 2;
                 break;
               }
               this._table.status = _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_EMPTY;
@@ -4716,11 +4928,11 @@ var ScoresController = /*#__PURE__*/function () {
               this._table.templateV1 = "";
               this._table.template = "";
               this._calculation.error = "";
-              return _context16.a(2, true);
+              return _context18.a(2, true);
             case 2:
               parsedTable = this._tableParser.parse(this._getTable(true));
               if (!(!parsedTable || null === parsedTable.id_board && this._isRanked())) {
-                _context16.n = 3;
+                _context18.n = 3;
                 break;
               }
               this._table.status = _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_ERROR;
@@ -4728,7 +4940,7 @@ var ScoresController = /*#__PURE__*/function () {
               this._table.templateV1 = "";
               this._table.template = "";
               this._calculation.error = this._tableParser.error ? this._tableParser.error : "Invalid scores.";
-              return _context16.a(2, false);
+              return _context18.a(2, false);
             case 3:
               if (null === parsedTable.id_board) {
                 this._table.status = _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_PARSED_CUSTOM;
@@ -4739,19 +4951,19 @@ var ScoresController = /*#__PURE__*/function () {
               this._table.templateV1 = this._tableParser.getTemplate(1);
               this._table.template = this._tableParser.getTemplate();
               this._calculation.error = "";
-              return _context16.a(2, true);
+              return _context18.a(2, true);
             case 4:
-              _context16.p = 4;
-              _t2 = _context16.v;
-              _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_58__["default"].logError("ScoresCalculationController._parseTable: ".concat(_t2.message), "info");
+              _context18.p = 4;
+              _t4 = _context18.v;
+              _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_58__["default"].logError("ScoresCalculationController._parseTable: ".concat(_t4.message), "info");
               this._table.status = _scores_calculation_TableParser__WEBPACK_IMPORTED_MODULE_75__["default"].STATUS_ERROR;
               this._table.parsed = null;
               this._table.templateV1 = "";
               this._table.template = "";
               this._calculation.error = "Invalid scores.";
-              return _context16.a(2, false);
+              return _context18.a(2, false);
           }
-        }, _callee16, this, [[1, 4]]);
+        }, _callee18, this, [[1, 4]]);
       }));
       function _parseTable() {
         return _parseTable2.apply(this, arguments);
@@ -4767,70 +4979,70 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_generateTableCanvas",
     value: (function () {
-      var _generateTableCanvas2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee17(matchResults) {
+      var _generateTableCanvas2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee19(matchResults) {
         var isSubmittedMatch,
           board,
           table,
-          _args17 = arguments,
-          _t3;
-        return _regenerator().w(function (_context17) {
-          while (1) switch (_context17.p = _context17.n) {
+          _args19 = arguments,
+          _t5;
+        return _regenerator().w(function (_context19) {
+          while (1) switch (_context19.p = _context19.n) {
             case 0:
-              isSubmittedMatch = _args17.length > 1 && _args17[1] !== undefined ? _args17[1] : false;
-              _context17.p = 1;
+              isSubmittedMatch = _args19.length > 1 && _args19[1] !== undefined ? _args19[1] : false;
+              _context19.p = 1;
               board = this._getBoard();
               if (isSubmittedMatch) {
                 table = this._submittedMatch.parsed;
               } else {
                 table = this._table.parsed;
               }
-              _context17.n = 2;
+              _context19.n = 2;
               return this._tableGenerator.generate(table, board, matchResults, isSubmittedMatch, this._isRanked());
             case 2:
-              return _context17.a(2, _context17.v);
+              return _context19.a(2, _context19.v);
             case 3:
-              _context17.p = 3;
-              _t3 = _context17.v;
+              _context19.p = 3;
+              _t5 = _context19.v;
               this._calculation.error = "Could not generate the results image.<br>Refresh the page and try again.";
-              _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_58__["default"].logError("ScoresCalculationController._refreshResultsTable: ".concat(_t3.message));
-              return _context17.a(2, false);
+              _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_58__["default"].logError("ScoresCalculationController._refreshResultsTable: ".concat(_t5.message));
+              return _context19.a(2, false);
           }
-        }, _callee17, this, [[1, 3]]);
+        }, _callee19, this, [[1, 3]]);
       }));
-      function _generateTableCanvas(_x8) {
+      function _generateTableCanvas(_x9) {
         return _generateTableCanvas2.apply(this, arguments);
       }
       return _generateTableCanvas;
     }())
   }, {
-    key: "_convertHTMLToImage",
+    key: "_htmlToCanvas",
     value: function () {
-      var _convertHTMLToImage2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee18() {
+      var _htmlToCanvas2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee20() {
         var image, elements;
-        return _regenerator().w(function (_context18) {
-          while (1) switch (_context18.n) {
+        return _regenerator().w(function (_context20) {
+          while (1) switch (_context20.n) {
             case 0:
-              _context18.n = 1;
-              return this._canvas.convertHTMLToImage(ScoresController.IMAGE_TYPE);
+              _context20.n = 1;
+              return this._canvas.htmlToCanvas(true);
             case 1:
-              image = _context18.v;
+              image = _context20.v;
               if (image) {
-                _context18.n = 2;
+                _context20.n = 2;
                 break;
               }
               this._calculation.error = "Could not generate the results image.<br>Refresh the page and try again.";
-              return _context18.a(2, null);
+              return _context20.a(2, null);
             case 2:
               elements = _table_generator_TableGenerator__WEBPACK_IMPORTED_MODULE_74__["default"].getElements();
               elements.body.appendChild(image);
-              return _context18.a(2, image);
+              return _context20.a(2, image);
           }
-        }, _callee18, this);
+        }, _callee20, this);
       }));
-      function _convertHTMLToImage() {
-        return _convertHTMLToImage2.apply(this, arguments);
+      function _htmlToCanvas() {
+        return _htmlToCanvas2.apply(this, arguments);
       }
-      return _convertHTMLToImage;
+      return _htmlToCanvas;
     }()
   }, {
     key: "_predictScores",
@@ -4926,30 +5138,30 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_hideSubmittedMatchShowHideButton",
     value: function _hideSubmittedMatchShowHideButton() {
-      var _this15 = this;
+      var _this14 = this;
       this._setSubmittedMatchOff(false);
       var elements = this._elements.submittedMatchSwitch;
       elements.forEach(function (element, index) {
-        _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(element, 0, 0, "swing", function () {
+        _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(element, 0, 0, function () {
           element.style.visibility = "hidden";
-          if (_this15._submittedMatch.active) {
+          if (_this14._submittedMatch.active) {
             element.textContent = "Hide";
           } else {
             element.textContent = "Show";
           }
         });
         if (index === elements.length - 1) {
-          _this15._elements.submittedMatchAlertWrapperXS.classList.add("d-none");
+          _this14._elements.submittedMatchAlertWrapperXS.classList.add("d-none");
         }
       });
     }
   }, {
     key: "_showSubmittedMatchShowHideButton",
     value: function _showSubmittedMatchShowHideButton() {
-      var _this16 = this;
+      var _this15 = this;
       var elements = this._elements.submittedMatchSwitch;
       elements.forEach(function (element, index) {
-        if (_this16._submittedMatch.active) {
+        if (_this15._submittedMatch.active) {
           element.textContent = "Hide";
         } else {
           element.textContent = "Show";
@@ -4958,38 +5170,38 @@ var ScoresController = /*#__PURE__*/function () {
         element.classList.remove("js-disabled");
         element.style.pointerEvents = "unset";
         element.style.visibility = "visible";
-        _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(element, 0, 1, "swing");
+        _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(element, 0, 1);
         if (index === elements.length - 1) {
-          _this16._elements.submittedMatchAlertWrapperXS.classList.remove("d-none");
+          _this15._elements.submittedMatchAlertWrapperXS.classList.remove("d-none");
         }
       });
     }
   }, {
     key: "_hideSubmittedMatchButtons",
     value: function () {
-      var _hideSubmittedMatchButtons2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee19() {
-        var _this17 = this;
+      var _hideSubmittedMatchButtons2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee21() {
+        var _this16 = this;
         var elements;
-        return _regenerator().w(function (_context19) {
-          while (1) switch (_context19.n) {
+        return _regenerator().w(function (_context21) {
+          while (1) switch (_context21.n) {
             case 0:
               elements = this._elements.submittedMatchSwitch;
               elements.forEach(function (element, index) {
                 var parent = element.parentElement;
-                _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(parent, ScoresController.ANIMATION_TIME, 0, "swing", function () {
-                  _this17._alertDialog.hideAsync(_common_AlertDialog__WEBPACK_IMPORTED_MODULE_59__["default"].ALERT_MATCH, {
+                _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(parent, ScoresController.ANIMATION_TIME, 0, function () {
+                  _this16._alertDialog.hideAsync(_common_AlertDialog__WEBPACK_IMPORTED_MODULE_59__["default"].ALERT_MATCH, {
                     "triggerType": _common_AlertDialog__WEBPACK_IMPORTED_MODULE_59__["default"].TRIGGER_TYPE_INSTANT,
                     "fadeTime": 0
                   }).catch(function (e) {
                     return e;
                   });
-                  _this17._hideSubmittedMatchShowHideButton();
+                  _this16._hideSubmittedMatchShowHideButton();
                 });
               });
             case 1:
-              return _context19.a(2);
+              return _context21.a(2);
           }
-        }, _callee19, this);
+        }, _callee21, this);
       }));
       function _hideSubmittedMatchButtons() {
         return _hideSubmittedMatchButtons2.apply(this, arguments);
@@ -4999,10 +5211,10 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_showHideSubmittedMatchButtons",
     value: function () {
-      var _showHideSubmittedMatchButtons2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee20() {
+      var _showHideSubmittedMatchButtons2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee22() {
         var isRanked, _this$_getBoard, _boardMatches$, boardMatches, latestMatchNumber, isNewerThanLatestMatchOnBoard, match;
-        return _regenerator().w(function (_context20) {
-          while (1) switch (_context20.n) {
+        return _regenerator().w(function (_context22) {
+          while (1) switch (_context22.n) {
             case 0:
               // Check if submitted match exists based on the ranked / unranked mode
               // If we are not in ranked mode, don't show submitted match
@@ -5035,9 +5247,9 @@ var ScoresController = /*#__PURE__*/function () {
                 });
               }
             case 1:
-              return _context20.a(2);
+              return _context22.a(2);
           }
-        }, _callee20, this);
+        }, _callee22, this);
       }));
       function _showHideSubmittedMatchButtons() {
         return _showHideSubmittedMatchButtons2.apply(this, arguments);
@@ -5047,10 +5259,10 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_showSubmittedMatchButtons",
     value: function () {
-      var _showSubmittedMatchButtons2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee21() {
+      var _showSubmittedMatchButtons2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee23() {
         var elements;
-        return _regenerator().w(function (_context21) {
-          while (1) switch (_context21.n) {
+        return _regenerator().w(function (_context23) {
+          while (1) switch (_context23.n) {
             case 0:
               if (this._submittedMatch.active) {
                 this._alertDialog.showAsync("Showing submitted lobby #".concat(this._table.parsed.number), {
@@ -5076,12 +5288,12 @@ var ScoresController = /*#__PURE__*/function () {
               elements = this._elements.submittedMatchSwitch;
               elements.forEach(function (element, index) {
                 var parent = element.parentElement;
-                _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(parent, ScoresController.ANIMATION_TIME, 1, "swing");
+                _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(parent, ScoresController.ANIMATION_TIME, 1);
               });
             case 1:
-              return _context21.a(2);
+              return _context23.a(2);
           }
-        }, _callee21, this);
+        }, _callee23, this);
       }));
       function _showSubmittedMatchButtons() {
         return _showSubmittedMatchButtons2.apply(this, arguments);
@@ -5098,94 +5310,156 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_dimTableCanvas",
     value: function _dimTableCanvas() {
+      var releaseTime = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
       var elements = _table_generator_TableGenerator__WEBPACK_IMPORTED_MODULE_74__["default"].getElements();
-      if (elements.image) {
-        elements.image.style.opacity = "0.65";
+      if (!elements.image) {
+        return;
       }
+      var offset = 10;
+      var transitionEndTime = Math.max(0, Math.min(100, releaseTime) - offset);
+      var perceptualMinimumTime = Math.max(0, releaseTime - offset);
+      _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].acquire("dim_table_canvas_transition_end");
+      _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].acquire("dim_table_canvas_perceptual_minimum");
+      setTimeout(function () {
+        _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("dim_table_canvas_transition_end", false);
+      }, transitionEndTime);
+      setTimeout(function () {
+        _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("dim_table_canvas_perceptual_minimum", false);
+      }, perceptualMinimumTime);
+      elements.image.style.opacity = "0.65";
     }
   }, {
     key: "_hideTableCanvas",
     value: function _hideTableCanvas() {
       var container = this._elements.tableCanvas;
       var elements = _table_generator_TableGenerator__WEBPACK_IMPORTED_MODULE_74__["default"].getElements();
-      var image = elements.image;
-      if (!image) {
+      if (!elements.image) {
         return;
       }
-      if (this._table.src && ScoresController.IMAGE_TYPE === "blob") {
-        URL.revokeObjectURL(this._table.src);
+      _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("dim_table_canvas_transition_end", false);
+      _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("dim_table_canvas_perceptual_minimum", false);
+      if (this._canvas.url) {
+        URL.revokeObjectURL(this._canvas.url);
+        this._canvas.url = "";
+        this._canvas.canvas = null;
       }
       this._table.src = "";
       var rect = container.getBoundingClientRect();
       container.style.height = "".concat(rect.height, "px");
-      requestAnimationFrame(function () {
-        container.style.height = "";
-        image.style.opacity = "0";
-        setTimeout(function () {
-          image.remove();
-          container.removeAttribute('style');
-        }, 100);
-      });
+      container.style.transition = 'height 0.1s';
+      elements.image.style.opacity = "0";
+      container.style.height = "";
+      setTimeout(function () {
+        elements.image.remove();
+        container.removeAttribute('style');
+      }, 100);
     }
   }, {
     key: "_displayTableCanvas",
     value: function () {
-      var _displayTableCanvas2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee22(image, animate, timers) {
-        var container, elements, cRect, ratio, containerHeight, processingTime, perceptualMinimumRemaining;
-        return _regenerator().w(function (_context22) {
-          while (1) switch (_context22.n) {
+      var _displayTableCanvas2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee25(image, animate) {
+        var _this17 = this;
+        return _regenerator().w(function (_context25) {
+          while (1) switch (_context25.n) {
             case 0:
-              // Revoke the old image
-              if (this._table.src && ScoresController.IMAGE_TYPE === "blob") {
-                URL.revokeObjectURL(this._table.src);
-              }
+              return _context25.a(2, new Promise(/*#__PURE__*/function () {
+                var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee24(resolve, reject) {
+                  var container, elements, cRect, ratio, iRect, containerHeight;
+                  return _regenerator().w(function (_context24) {
+                    while (1) switch (_context24.n) {
+                      case 0:
+                        // Revoke the old image
+                        if (_this17._canvas.url) {
+                          URL.revokeObjectURL(_this17._canvas.url);
+                          _this17._canvas.url = "";
+                        }
 
-              // Set the new image src
-              this._table.src = image.src;
+                        // Set the new image src
+                        if (ScoresController.IMAGE_TYPE !== "canvas") {
+                          _this17._table.src = image.src;
+                        }
 
-              // Append the image as hidden into the container, if not exists yet
-              container = this._elements.tableCanvas;
-              elements = _table_generator_TableGenerator__WEBPACK_IMPORTED_MODULE_74__["default"].getElements();
-              if (!elements.image) {
-                container.appendChild(image);
-                image.style.visibility = "hidden";
-                image.style.opacity = "0";
-              }
+                        // Append the image as hidden into the container, if not exists yet
+                        container = _this17._elements.tableCanvas;
+                        elements = _table_generator_TableGenerator__WEBPACK_IMPORTED_MODULE_74__["default"].getElements();
+                        if (!elements.image) {
+                          container.appendChild(image);
+                          image.style.visibility = "hidden";
+                          image.style.opacity = "0";
+                        }
 
-              // Get the rect of the container
-              cRect = container.getBoundingClientRect(); // Calculate the final height of the container based on the image ratio
-              ratio = image.naturalHeight / image.naturalWidth;
-              containerHeight = cRect.width * ratio; // Lock the container height at its current height (so we can animate it)
-              if (animate) {
-                container.style.transition = '';
-                container.style.height = "".concat(cRect.height, "px");
-              }
+                        // Get the rect of the container
+                        cRect = container.getBoundingClientRect(); // Calculate the final height of the container based on the image ratio
+                        if (image instanceof HTMLCanvasElement) {
+                          iRect = image.getBoundingClientRect();
+                          ratio = iRect.height / iRect.width;
+                        } else {
+                          ratio = image.naturalHeight / image.naturalWidth;
+                        }
+                        containerHeight = cRect.width * ratio; // Lock the container height at its current height (so we can animate it)
+                        if (animate) {
+                          container.style.transition = '';
+                          container.style.height = "".concat(cRect.height, "px");
+                        }
 
-              // Transition handling of the container height
-              container.style.transition = animate ? 'height 0.1s' : '';
+                        // Transition handling of the container height
+                        container.style.transition = animate ? 'height 0.1s' : '';
 
-              // Show the image
-              processingTime = new Date() - timers.started_at;
-              perceptualMinimumRemaining = Math.max(0, timers.perceptual_minimum - processingTime);
-              setTimeout(function () {
-                container.style.height = "".concat(containerHeight, "px");
-                if (elements.image) {
-                  elements.image.replaceWith(image);
-                } else {
-                  image.style.visibility = "visible";
-                  image.style.opacity = "1";
-                }
-                setTimeout(function () {
-                  container.style.transition = '';
-                  container.style.height = 'auto';
-                }, 100);
-              }, perceptualMinimumRemaining);
-            case 1:
-              return _context22.a(2);
+                        // If we are starting the app, just show the image immediately
+                        if (!(_this17._appStart.status === "starting")) {
+                          _context24.n = 1;
+                          break;
+                        }
+                        container.style.height = "".concat(containerHeight, "px");
+                        image.style.opacity = "1";
+                        image.style.visibility = "visible";
+                        _context24.n = 3;
+                        break;
+                      case 1:
+                        _context24.n = 2;
+                        return _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].wait("dim_table_canvas_transition_end");
+                      case 2:
+                        container.style.height = "".concat(containerHeight, "px");
+                        image.style.opacity = "0.65";
+                        if (elements.image) {
+                          elements.image.replaceWith(image);
+                        } else {
+                          image.style.visibility = "visible";
+                        }
+                      case 3:
+                        // Resolve now, so this method stops awaiting
+                        resolve();
+
+                        // After the animation, reset container styles, so it can be resized by the content (image scaling)
+                        setTimeout(function () {
+                          container.style.transition = '';
+                          container.style.height = 'auto';
+                        }, 100);
+
+                        // If we are starting image is already visible, end
+                        if (!(_this17._appStart.status === "starting")) {
+                          _context24.n = 4;
+                          break;
+                        }
+                        return _context24.a(2);
+                      case 4:
+                        _context24.n = 5;
+                        return _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].wait("dim_table_canvas_perceptual_minimum");
+                      case 5:
+                        image.style.opacity = "1";
+                      case 6:
+                        return _context24.a(2);
+                    }
+                  }, _callee24);
+                }));
+                return function (_x10, _x11) {
+                  return _ref6.apply(this, arguments);
+                };
+              }()));
           }
-        }, _callee22, this);
+        }, _callee25);
       }));
-      function _displayTableCanvas(_x9, _x0, _x1) {
+      function _displayTableCanvas(_x0, _x1) {
         return _displayTableCanvas2.apply(this, arguments);
       }
       return _displayTableCanvas;
@@ -5356,13 +5630,13 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_processCanvasScrollBubble",
     value: function () {
-      var _processCanvasScrollBubble2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee23() {
+      var _processCanvasScrollBubble2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee26() {
         var _this20 = this;
-        return _regenerator().w(function (_context23) {
-          while (1) switch (_context23.n) {
+        return _regenerator().w(function (_context26) {
+          while (1) switch (_context26.n) {
             case 0:
-              _context23.n = 1;
-              return _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].wait("canvas_scroll_bubble");
+              _context26.n = 1;
+              return _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].wait("canvas_scroll_bubble", true);
             case 1:
               this._timeouts.bubble.processing = true;
 
@@ -5372,14 +5646,14 @@ var ScoresController = /*#__PURE__*/function () {
                 if (!_this20._isSmallScreen) {
                   _this20._hideScrollBubble(_this20._elements.scrollBubbleImage).then(function () {
                     _this20._timeouts.bubble.processing = false;
-                    _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("canvas_scroll_bubble");
+                    _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("canvas_scroll_bubble", false);
                   });
                   return;
                 }
                 if (!_this20._getTable(true)) {
                   _this20._hideScrollBubble(_this20._elements.scrollBubbleImage).then(function () {
                     _this20._timeouts.bubble.processing = false;
-                    _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("canvas_scroll_bubble");
+                    _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("canvas_scroll_bubble", false);
                   });
                   return;
                 }
@@ -5389,7 +5663,7 @@ var ScoresController = /*#__PURE__*/function () {
                 if (rect.top > window.innerHeight || !_this20._isElementVisibleFraction(rect, 0.25)) {
                   _this20._showScrollBubbleImage(_this20._elements.scrollBubbleImage, 300).then(function () {
                     _this20._timeouts.bubble.processing = false;
-                    _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("canvas_scroll_bubble");
+                    _common_EventLock__WEBPACK_IMPORTED_MODULE_67__["default"].release("canvas_scroll_bubble", false);
                   });
                 } else {
                   _this20._hideScrollBubble(_this20._elements.scrollBubbleImage, 300).then(function () {
@@ -5399,9 +5673,9 @@ var ScoresController = /*#__PURE__*/function () {
                 }
               }, 150);
             case 2:
-              return _context23.a(2);
+              return _context26.a(2);
           }
-        }, _callee23, this);
+        }, _callee26, this);
       }));
       function _processCanvasScrollBubble() {
         return _processCanvasScrollBubble2.apply(this, arguments);
@@ -5411,14 +5685,14 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_showScrollBubbleImage",
     value: function () {
-      var _showScrollBubbleImage2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee24(element) {
+      var _showScrollBubbleImage2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee27(element) {
         var animationTime,
-          _args24 = arguments;
-        return _regenerator().w(function (_context24) {
-          while (1) switch (_context24.n) {
+          _args27 = arguments;
+        return _regenerator().w(function (_context27) {
+          while (1) switch (_context27.n) {
             case 0:
-              animationTime = _args24.length > 1 && _args24[1] !== undefined ? _args24[1] : 300;
-              return _context24.a(2, new Promise(function (resolve, reject) {
+              animationTime = _args27.length > 1 && _args27[1] !== undefined ? _args27[1] : 300;
+              return _context27.a(2, new Promise(function (resolve, reject) {
                 if (!element.classList.contains("d-none")) {
                   resolve(true);
                   return;
@@ -5429,14 +5703,14 @@ var ScoresController = /*#__PURE__*/function () {
                 }
                 element.style.opacity = "0";
                 element.classList.remove("d-none");
-                _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(element, animationTime, 1, "swing", function () {
+                _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(element, animationTime, 1, function () {
                   resolve(true);
                 });
               }));
           }
-        }, _callee24);
+        }, _callee27);
       }));
-      function _showScrollBubbleImage(_x10) {
+      function _showScrollBubbleImage(_x12) {
         return _showScrollBubbleImage2.apply(this, arguments);
       }
       return _showScrollBubbleImage;
@@ -5444,14 +5718,14 @@ var ScoresController = /*#__PURE__*/function () {
   }, {
     key: "_hideScrollBubble",
     value: function () {
-      var _hideScrollBubble2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee25(element) {
+      var _hideScrollBubble2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee28(element) {
         var animationTime,
-          _args25 = arguments;
-        return _regenerator().w(function (_context25) {
-          while (1) switch (_context25.n) {
+          _args28 = arguments;
+        return _regenerator().w(function (_context28) {
+          while (1) switch (_context28.n) {
             case 0:
-              animationTime = _args25.length > 1 && _args25[1] !== undefined ? _args25[1] : 300;
-              return _context25.a(2, new Promise(function (resolve, reject) {
+              animationTime = _args28.length > 1 && _args28[1] !== undefined ? _args28[1] : 300;
+              return _context28.a(2, new Promise(function (resolve, reject) {
                 if (element.classList.contains("d-none")) {
                   resolve(true);
                   return;
@@ -5461,15 +5735,15 @@ var ScoresController = /*#__PURE__*/function () {
                   return;
                 }
                 element.style.opacity = "1";
-                _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(element, animationTime, 0, "swing", function () {
+                _common_Fade__WEBPACK_IMPORTED_MODULE_68__["default"].fadeTo(element, animationTime, 0, function () {
                   element.classList.add("d-none");
                   resolve(true);
                 });
               }));
           }
-        }, _callee25);
+        }, _callee28);
       }));
-      function _hideScrollBubble(_x11) {
+      function _hideScrollBubble(_x13) {
         return _hideScrollBubble2.apply(this, arguments);
       }
       return _hideScrollBubble;
@@ -5500,9 +5774,13 @@ var ScoresController = /*#__PURE__*/function () {
       }, ScoresController.ANIMATION_TIME);
     }
   }, {
-    key: "_hideModalAsync",
-    value: function _hideModalAsync(modalElement) {
+    key: "_hideModal",
+    value: function _hideModal(modalElement) {
       return new Promise(function (resolve) {
+        if (!modalElement.classList.contains("show")) {
+          resolve();
+          return;
+        }
         var instance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(modalElement) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(modalElement);
         function onHidden() {
           modalElement.removeEventListener("hidden.bs.modal", onHidden);
@@ -5512,13 +5790,30 @@ var ScoresController = /*#__PURE__*/function () {
         instance.hide();
       });
     }
+  }, {
+    key: "_showModal",
+    value: function _showModal(modalElement, options) {
+      return new Promise(function (resolve) {
+        var instance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default().getInstance(modalElement) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_70___default())(modalElement, options);
+        if (modalElement.classList.contains("show")) {
+          resolve(instance);
+          return;
+        }
+        function onShown() {
+          modalElement.removeEventListener("shown.bs.modal", onShown);
+          resolve(instance);
+        }
+        modalElement.addEventListener("shown.bs.modal", onShown);
+        instance.show();
+      });
+    }
   }]);
 }();
 _defineProperty(ScoresController, "DATA_FETCH_INTERVAL", 15000);
 _defineProperty(ScoresController, "ANIMATION_TIME", 100);
-_defineProperty(ScoresController, "IMAGE_TYPE", "blob");
-// blob
-_defineProperty(ScoresController, "USE_CUSTOM_CONTEXT_MENU", false);
+_defineProperty(ScoresController, "IMAGE_TYPE", "canvas");
+// blob, dataUrl
+_defineProperty(ScoresController, "USE_CUSTOM_CONTEXT_MENU", true);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ScoresController);
 
 /***/ },
@@ -8399,49 +8694,57 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_17__);
 /* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! core-js/modules/es.object.define-property.js */ "./node_modules/core-js/modules/es.object.define-property.js");
 /* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! core-js/modules/es.parse-int.js */ "./node_modules/core-js/modules/es.parse-int.js");
-/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_20__);
-/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
-/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_21__);
-/* harmony import */ var core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! core-js/modules/es.regexp.test.js */ "./node_modules/core-js/modules/es.regexp.test.js");
-/* harmony import */ var core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! core-js/modules/es.regexp.to-string.js */ "./node_modules/core-js/modules/es.regexp.to-string.js");
-/* harmony import */ var core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! core-js/modules/es.string.iterator.js */ "./node_modules/core-js/modules/es.string.iterator.js");
-/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var core_js_modules_es_string_split_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! core-js/modules/es.string.split.js */ "./node_modules/core-js/modules/es.string.split.js");
-/* harmony import */ var core_js_modules_es_string_split_js__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_split_js__WEBPACK_IMPORTED_MODULE_25__);
-/* harmony import */ var core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! core-js/modules/es.string.trim.js */ "./node_modules/core-js/modules/es.string.trim.js");
-/* harmony import */ var core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_26__);
-/* harmony import */ var core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! core-js/modules/esnext.iterator.constructor.js */ "./node_modules/core-js/modules/esnext.iterator.constructor.js");
-/* harmony import */ var core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_27__);
-/* harmony import */ var core_js_modules_esnext_iterator_every_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! core-js/modules/esnext.iterator.every.js */ "./node_modules/core-js/modules/esnext.iterator.every.js");
-/* harmony import */ var core_js_modules_esnext_iterator_every_js__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_every_js__WEBPACK_IMPORTED_MODULE_28__);
-/* harmony import */ var core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! core-js/modules/esnext.iterator.for-each.js */ "./node_modules/core-js/modules/esnext.iterator.for-each.js");
-/* harmony import */ var core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_29__);
-/* harmony import */ var core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! core-js/modules/esnext.iterator.map.js */ "./node_modules/core-js/modules/esnext.iterator.map.js");
-/* harmony import */ var core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_30__);
-/* harmony import */ var core_js_modules_esnext_iterator_reduce_js__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! core-js/modules/esnext.iterator.reduce.js */ "./node_modules/core-js/modules/esnext.iterator.reduce.js");
-/* harmony import */ var core_js_modules_esnext_iterator_reduce_js__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_reduce_js__WEBPACK_IMPORTED_MODULE_31__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_32__);
-/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
-/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_33__);
-/* harmony import */ var _common_AlertDialog__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../../common/AlertDialog */ "./assets/src/common/AlertDialog.js");
-/* harmony import */ var choices_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! choices.js */ "./node_modules/choices.js/public/assets/scripts/choices.mjs");
-/* harmony import */ var _common_Mobile__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../../common/Mobile */ "./assets/src/common/Mobile.js");
-/* harmony import */ var bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! bootstrap/js/dist/modal */ "./node_modules/bootstrap/js/dist/modal.js");
-/* harmony import */ var bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_37__);
-/* harmony import */ var sortablejs__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! sortablejs */ "./node_modules/sortablejs/modular/sortable.esm.js");
-/* harmony import */ var _TableParser__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./TableParser */ "./assets/src/scores/scores_calculation/TableParser.js");
-/* harmony import */ var _common_Tippy__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ../../common/Tippy */ "./assets/src/common/Tippy.js");
+/* harmony import */ var core_js_modules_es_object_get_prototype_of_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! core-js/modules/es.object.get-prototype-of.js */ "./node_modules/core-js/modules/es.object.get-prototype-of.js");
+/* harmony import */ var core_js_modules_es_object_get_prototype_of_js__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_prototype_of_js__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var core_js_modules_es_object_set_prototype_of_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! core-js/modules/es.object.set-prototype-of.js */ "./node_modules/core-js/modules/es.object.set-prototype-of.js");
+/* harmony import */ var core_js_modules_es_object_set_prototype_of_js__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_set_prototype_of_js__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! core-js/modules/es.parse-int.js */ "./node_modules/core-js/modules/es.parse-int.js");
+/* harmony import */ var core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_int_js__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! core-js/modules/es.promise.js */ "./node_modules/core-js/modules/es.promise.js");
+/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! core-js/modules/es.regexp.test.js */ "./node_modules/core-js/modules/es.regexp.test.js");
+/* harmony import */ var core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! core-js/modules/es.regexp.to-string.js */ "./node_modules/core-js/modules/es.regexp.to-string.js");
+/* harmony import */ var core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_26__);
+/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! core-js/modules/es.string.iterator.js */ "./node_modules/core-js/modules/es.string.iterator.js");
+/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var core_js_modules_es_string_split_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! core-js/modules/es.string.split.js */ "./node_modules/core-js/modules/es.string.split.js");
+/* harmony import */ var core_js_modules_es_string_split_js__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_split_js__WEBPACK_IMPORTED_MODULE_28__);
+/* harmony import */ var core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! core-js/modules/es.string.trim.js */ "./node_modules/core-js/modules/es.string.trim.js");
+/* harmony import */ var core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_29__);
+/* harmony import */ var core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! core-js/modules/esnext.iterator.constructor.js */ "./node_modules/core-js/modules/esnext.iterator.constructor.js");
+/* harmony import */ var core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_30__);
+/* harmony import */ var core_js_modules_esnext_iterator_every_js__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! core-js/modules/esnext.iterator.every.js */ "./node_modules/core-js/modules/esnext.iterator.every.js");
+/* harmony import */ var core_js_modules_esnext_iterator_every_js__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_every_js__WEBPACK_IMPORTED_MODULE_31__);
+/* harmony import */ var core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! core-js/modules/esnext.iterator.for-each.js */ "./node_modules/core-js/modules/esnext.iterator.for-each.js");
+/* harmony import */ var core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_32__);
+/* harmony import */ var core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! core-js/modules/esnext.iterator.map.js */ "./node_modules/core-js/modules/esnext.iterator.map.js");
+/* harmony import */ var core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_33__);
+/* harmony import */ var core_js_modules_esnext_iterator_reduce_js__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! core-js/modules/esnext.iterator.reduce.js */ "./node_modules/core-js/modules/esnext.iterator.reduce.js");
+/* harmony import */ var core_js_modules_esnext_iterator_reduce_js__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_reduce_js__WEBPACK_IMPORTED_MODULE_34__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_35__);
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_36__);
+/* harmony import */ var _common_AlertDialog__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../../common/AlertDialog */ "./assets/src/common/AlertDialog.js");
+/* harmony import */ var choices_js__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! choices.js */ "./node_modules/choices.js/public/assets/scripts/choices.mjs");
+/* harmony import */ var _common_Mobile__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ../../common/Mobile */ "./assets/src/common/Mobile.js");
+/* harmony import */ var bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! bootstrap/js/dist/modal */ "./node_modules/bootstrap/js/dist/modal.js");
+/* harmony import */ var bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_40___default = /*#__PURE__*/__webpack_require__.n(bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_40__);
+/* harmony import */ var sortablejs__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! sortablejs */ "./node_modules/sortablejs/modular/sortable.esm.js");
+/* harmony import */ var _TableParser__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./TableParser */ "./assets/src/scores/scores_calculation/TableParser.js");
+/* harmony import */ var _common_Tippy__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ../../common/Tippy */ "./assets/src/common/Tippy.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
 function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i.return) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
@@ -8449,6 +8752,11 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t.return || t.return(); } finally { if (u) throw o; } } }; }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+
 
 
 
@@ -8507,8 +8815,8 @@ var TableControl = /*#__PURE__*/function () {
     this._board = null;
     this._parsedTable = null;
     this._isRanked = true;
-    this._tableParser = new _TableParser__WEBPACK_IMPORTED_MODULE_39__["default"]();
-    this._alertDialog = new _common_AlertDialog__WEBPACK_IMPORTED_MODULE_34__["default"]();
+    this._tableParser = new _TableParser__WEBPACK_IMPORTED_MODULE_42__["default"]();
+    this._alertDialog = new _common_AlertDialog__WEBPACK_IMPORTED_MODULE_37__["default"]();
     this._sortable = null;
     this._raceChoices = null;
     this._subscribeElements();
@@ -8593,58 +8901,73 @@ var TableControl = /*#__PURE__*/function () {
     }
   }, {
     key: "loadControls",
-    value: function loadControls() {
-      // Render races into custom select (Choices-js)
-      if (!this._raceChoices) {
-        this._initRaceChoices();
-      }
-      this._fillRaceChoices(this._raceSelectType === "auto" ? "auto" : String(this._race));
+    value: function () {
+      var _loadControls = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var players, _iterator, _step, _step$value, player, li, instance;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.n) {
+            case 0:
+              // Render races into custom select (Choices-js)
+              if (!this._raceChoices) {
+                this._initRaceChoices();
+              }
+              _context.n = 1;
+              return this._fillRaceChoices(this._raceSelectType === "auto" ? "auto" : String(this._race));
+            case 1:
+              // Get players
+              players = this._getPlayers();
+              if (players) {
+                _context.n = 2;
+                break;
+              }
+              return _context.a(2);
+            case 2:
+              // Render players into the list
+              this._elements.playersList.innerHTML = '';
+              _iterator = _createForOfIteratorHelper(players.entries());
+              try {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                  _step$value = _slicedToArray(_step.value, 2), player = _step$value[1];
+                  li = document.createElement("li");
+                  li.className = "js-edit-scores-item list-group-item d-flex align-items-center draggable";
+                  li.dataset.value = player.name;
+                  li.innerHTML = "\n      <span class=\"position js-edit-scores-player-position\">".concat(this._getPositionLabel(player.positions[this._race - 1]), "</span>\n      <span class=\"name js-edit-scores-player-name flex-grow-1\">").concat(this._getPlayerName(player.name, 16), "</span>\n      <span class=\"penalty js-edit-scores-player-penalty\">[P]</span>\n    ");
+                  this._setPlayerListeners(li);
+                  this._elements.playersList.appendChild(li);
+                }
 
-      // Get players
-      var players = this._getPlayers();
-      if (!players) {
-        return;
-      }
+                // Set first time's Tippy info
+              } catch (err) {
+                _iterator.e(err);
+              } finally {
+                _iterator.f();
+              }
+              this._setTippyTooltips();
 
-      // Render players into the list
-      this._elements.playersList.innerHTML = '';
-      var _iterator = _createForOfIteratorHelper(players.entries()),
-        _step;
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var _step$value = _slicedToArray(_step.value, 2),
-            player = _step$value[1];
-          var li = document.createElement("li");
-          li.className = "js-edit-scores-item list-group-item d-flex align-items-center draggable";
-          li.dataset.value = player.name;
-          li.innerHTML = "\n      <span class=\"position js-edit-scores-player-position\">".concat(this._getPositionLabel(player.positions[this._race - 1]), "</span>\n      <span class=\"name js-edit-scores-player-name flex-grow-1\">").concat(this._getPlayerName(player.name, 16), "</span>\n      <span class=\"penalty js-edit-scores-player-penalty\">[P]</span>\n    ");
-          this._setPlayerListeners(li);
-          this._elements.playersList.appendChild(li);
-        }
+              // Activate "drag and drop"
+              if (!this._sortable) {
+                this._initSortable();
+              }
 
-        // Set first time's Tippy info
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
+              // Show modal if not opened yet
+              instance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_40___default().getInstance(this._elements.editScoresModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_40___default())(this._elements.editScoresModal);
+              if (!this._elements.editScoresModal.classList.contains("show")) {
+                instance.show();
+              }
+            case 3:
+              return _context.a(2);
+          }
+        }, _callee, this);
+      }));
+      function loadControls() {
+        return _loadControls.apply(this, arguments);
       }
-      this._setTippyTooltips();
-
-      // Activate "drag and drop"
-      if (!this._sortable) {
-        this._initSortable();
-      }
-
-      // Show modal if not opened yet
-      var instance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_37___default().getInstance(this._elements.editScoresModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_37___default())(this._elements.editScoresModal);
-      if (!this._elements.editScoresModal.classList.contains("show")) {
-        instance.show();
-      }
-    }
+      return loadControls;
+    }()
   }, {
     key: "closeControls",
     value: function closeControls() {
-      var instance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_37___default().getInstance(this._elements.editScoresModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_37___default())(this._elements.editScoresModal);
+      var instance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_40___default().getInstance(this._elements.editScoresModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_40___default())(this._elements.editScoresModal);
       instance.hide();
     }
   }, {
@@ -8787,7 +9110,7 @@ var TableControl = /*#__PURE__*/function () {
       }
 
       // Create new table that will be pasted into the textarea
-      var table = _TableParser__WEBPACK_IMPORTED_MODULE_39__["default"].normalize(lines.join("\n"));
+      var table = _TableParser__WEBPACK_IMPORTED_MODULE_42__["default"].normalize(lines.join("\n"));
 
       // Update textarea value with the updated scores
       this._elements.textarea.value = table;
@@ -8837,11 +9160,11 @@ var TableControl = /*#__PURE__*/function () {
           return;
         }
         if (isMouseDown && !dragging) {
-          _common_Tippy__WEBPACK_IMPORTED_MODULE_40__["default"].show(element, "Drag and drop to set race positions.", "top", 1500);
+          _common_Tippy__WEBPACK_IMPORTED_MODULE_43__["default"].show(element, "Drag and drop to set race positions.", "top", 1500);
           _this2._alertDialog.show("How to use", {
             "selector": ".js-edit-scores-help-alert-dialog",
-            "type": _common_AlertDialog__WEBPACK_IMPORTED_MODULE_34__["default"].TYPE_NONE,
-            "triggerType": _common_AlertDialog__WEBPACK_IMPORTED_MODULE_34__["default"].TRIGGER_TYPE_INSTANT,
+            "type": _common_AlertDialog__WEBPACK_IMPORTED_MODULE_37__["default"].TYPE_NONE,
+            "triggerType": _common_AlertDialog__WEBPACK_IMPORTED_MODULE_37__["default"].TRIGGER_TYPE_INSTANT,
             "animationTime": 2000
           });
           return;
@@ -8870,11 +9193,11 @@ var TableControl = /*#__PURE__*/function () {
 
       // Do not process tie, if this is a first player in the list
       if (index === 0) {
-        _common_Tippy__WEBPACK_IMPORTED_MODULE_40__["default"].show(element.querySelector(this._selectors.position), "To tie with first place, click on the \"2nd\" place text below.", "top", 2000);
+        _common_Tippy__WEBPACK_IMPORTED_MODULE_43__["default"].show(element.querySelector(this._selectors.position), "To tie with first place, click on the \"2nd\" place text below.", "top", 2000);
         this._alertDialog.show("How to use", {
           "selector": ".js-edit-scores-help-alert-dialog",
-          "type": _common_AlertDialog__WEBPACK_IMPORTED_MODULE_34__["default"].TYPE_NONE,
-          "triggerType": _common_AlertDialog__WEBPACK_IMPORTED_MODULE_34__["default"].TRIGGER_TYPE_INSTANT,
+          "type": _common_AlertDialog__WEBPACK_IMPORTED_MODULE_37__["default"].TYPE_NONE,
+          "triggerType": _common_AlertDialog__WEBPACK_IMPORTED_MODULE_37__["default"].TRIGGER_TYPE_INSTANT,
           "animationTime": 1250
         });
         return;
@@ -8916,7 +9239,7 @@ var TableControl = /*#__PURE__*/function () {
 
       // Penalty options
       var penalties = [-10, -8, -6, -5, -4, -3, -2, 0, "[P]"];
-      var instance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_37___default().getInstance(this._elements.penaltyModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_37___default())(this._elements.penaltyModal);
+      var instance = bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_40___default().getInstance(this._elements.penaltyModal) || new (bootstrap_js_dist_modal__WEBPACK_IMPORTED_MODULE_40___default())(this._elements.penaltyModal);
       penalties.forEach(function (points) {
         var useDivider = points === 0;
         if (useDivider) {
@@ -8950,8 +9273,8 @@ var TableControl = /*#__PURE__*/function () {
   }, {
     key: "_setTippyTooltips",
     value: function _setTippyTooltips() {
-      if (!_common_Mobile__WEBPACK_IMPORTED_MODULE_36__["default"].isTouchDevice()) {
-        _common_Tippy__WEBPACK_IMPORTED_MODULE_40__["default"].showOnceOnMouseEnter(this._selectors.raceChoices, "Pick a race to edit scores for.<br>Auto = selects the first race without scores.<br>You can paste track names at the bottom of the results field to label races.", true, "top");
+      if (!_common_Mobile__WEBPACK_IMPORTED_MODULE_39__["default"].isTouchDevice()) {
+        _common_Tippy__WEBPACK_IMPORTED_MODULE_43__["default"].showOnceOnMouseEnter(this._selectors.raceChoices, "Pick a race to edit scores for.<br>Auto = selects the first race without scores.<br>You can paste track names at the bottom of the results field to label races.", true, "top");
         var items = Array.from(this._elements.playersList.querySelectorAll("li"));
         var _iterator4 = _createForOfIteratorHelper(items.entries()),
           _step4;
@@ -8960,9 +9283,9 @@ var TableControl = /*#__PURE__*/function () {
             var _step4$value = _slicedToArray(_step4.value, 2),
               i = _step4$value[0],
               li = _step4$value[1];
-            _common_Tippy__WEBPACK_IMPORTED_MODULE_40__["default"].showOnceOnMouseEnter([li.querySelector(this._selectors.position), this._selectors.position], "Click to tie or untie with the player above.", true, "right");
-            _common_Tippy__WEBPACK_IMPORTED_MODULE_40__["default"].showOnceOnMouseEnter([li.querySelector(this._selectors.name), this._selectors.name], "Drag and drop to set race positions.", true, "top");
-            _common_Tippy__WEBPACK_IMPORTED_MODULE_40__["default"].showOnceOnMouseEnter([li.querySelector(this._selectors.penalty), this._selectors.penalty], "Click to apply a penalty or zero points.", true, "left");
+            _common_Tippy__WEBPACK_IMPORTED_MODULE_43__["default"].showOnceOnMouseEnter([li.querySelector(this._selectors.position), this._selectors.position], "Click to tie or untie with the player above.", true, "right");
+            _common_Tippy__WEBPACK_IMPORTED_MODULE_43__["default"].showOnceOnMouseEnter([li.querySelector(this._selectors.name), this._selectors.name], "Drag and drop to set race positions.", true, "top");
+            _common_Tippy__WEBPACK_IMPORTED_MODULE_43__["default"].showOnceOnMouseEnter([li.querySelector(this._selectors.penalty), this._selectors.penalty], "Click to apply a penalty or zero points.", true, "left");
           }
         } catch (err) {
           _iterator4.e(err);
@@ -8979,7 +9302,7 @@ var TableControl = /*#__PURE__*/function () {
     key: "_initRaceChoices",
     value: function _initRaceChoices() {
       var _this3 = this;
-      this._raceChoices = new choices_js__WEBPACK_IMPORTED_MODULE_35__["default"](this._elements.race, {
+      this._raceChoices = new choices_js__WEBPACK_IMPORTED_MODULE_38__["default"](this._elements.race, {
         searchEnabled: false,
         itemSelectText: '',
         shouldSort: false,
@@ -8991,41 +9314,69 @@ var TableControl = /*#__PURE__*/function () {
         });
       });
       this._raceChoices.passedElement.element.addEventListener('choice', function (event) {
-        _this3.setRace(event.detail.value).loadControls();
+        _this3.setRace(event.detail.value).loadControls().catch(function (e) {
+          return e;
+        });
       });
     }
   }, {
     key: "_fillRaceChoices",
-    value: function _fillRaceChoices() {
-      var _this4 = this;
-      var currentValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-      if (!currentValue) {
-        currentValue = this._raceChoices.getValue(true);
+    value: function () {
+      var _fillRaceChoices2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+        var _this4 = this;
+        var currentValue,
+          allChoices,
+          selectedValueSingleItem,
+          _args2 = arguments;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.n) {
+            case 0:
+              currentValue = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : null;
+              if (!currentValue) {
+                currentValue = this._raceChoices.getValue(true);
+              }
+              allChoices = [].concat(_toConsumableArray(this._canUseAutomaticRaceMode() ? [{
+                value: 'auto',
+                label: this._getTrackName("auto")
+              }] : []), _toConsumableArray(Array.from({
+                length: this._getTrackCount()
+              }, function (_, i) {
+                return {
+                  value: String(i + 1),
+                  label: _this4._getTrackName(i + 1)
+                };
+              })));
+              if (!currentValue && allChoices.length) {
+                currentValue = allChoices[0].value;
+              }
+              this._raceChoices.removeActiveItems();
+              this._raceChoices.clearChoices();
+              _context2.n = 1;
+              return this._raceChoices.setChoices(allChoices, 'value', 'label', true);
+            case 1:
+              _context2.n = 2;
+              return new Promise(requestAnimationFrame);
+            case 2:
+              this._raceChoices.setChoiceByValue(currentValue);
+              this._raceChoices.containerOuter.element.querySelectorAll('.choices__item--choice').forEach(function (el) {
+                return el.classList.remove('is-highlighted');
+              });
+
+              // Manual fallback, sometimes assigning selected value into the "preview" div doesn't work...
+              selectedValueSingleItem = this._raceChoices.containerOuter.element.querySelector(".choices__list.choices__list--single");
+              if (selectedValueSingleItem && selectedValueSingleItem.textContent.trim() === "" && allChoices.length) {
+                selectedValueSingleItem.innerHTML = "<div class=\"choices__item choices__item--selectable\" data-item=\"\" data-id=\"1\" data-value=\"".concat(allChoices[0].value, "\" aria-selected=\"true\" role=\"option\">").concat(allChoices[0].label, "</div>");
+              }
+            case 3:
+              return _context2.a(2);
+          }
+        }, _callee2, this);
+      }));
+      function _fillRaceChoices() {
+        return _fillRaceChoices2.apply(this, arguments);
       }
-      var allChoices = [].concat(_toConsumableArray(this._canUseAutomaticRaceMode() ? [{
-        value: 'auto',
-        label: this._getTrackName("auto")
-      }] : []), _toConsumableArray(Array.from({
-        length: this._getTrackCount()
-      }, function (_, i) {
-        return {
-          value: String(i + 1),
-          label: _this4._getTrackName(i + 1)
-        };
-      })));
-      if (!currentValue && allChoices.length) {
-        currentValue = allChoices[0].value;
-      }
-      this._raceChoices.removeActiveItems();
-      this._raceChoices.clearChoices();
-      this._raceChoices.setChoices(allChoices, 'value', 'label', true);
-      requestAnimationFrame(function () {
-        _this4._raceChoices.setChoiceByValue(currentValue);
-        _this4._raceChoices.containerOuter.element.querySelectorAll('.choices__item--choice').forEach(function (el) {
-          return el.classList.remove('is-highlighted');
-        });
-      });
-    }
+      return _fillRaceChoices;
+    }()
   }, {
     key: "_initSortable",
     value: function _initSortable() {
@@ -9033,7 +9384,7 @@ var TableControl = /*#__PURE__*/function () {
       // Track old and new indices across onChange calls
       var oldIndex = null;
       var newindex = null;
-      this._sortable = sortablejs__WEBPACK_IMPORTED_MODULE_38__["default"].create(this._elements.playersList, {
+      this._sortable = sortablejs__WEBPACK_IMPORTED_MODULE_41__["default"].create(this._elements.playersList, {
         forceFallback: true,
         animation: 150,
         direction: "vertical",
@@ -9256,7 +9607,7 @@ var TableControl = /*#__PURE__*/function () {
   }, {
     key: "_getTable",
     value: function _getTable() {
-      return _TableParser__WEBPACK_IMPORTED_MODULE_39__["default"].normalize(this._elements.textarea.value);
+      return _TableParser__WEBPACK_IMPORTED_MODULE_42__["default"].normalize(this._elements.textarea.value);
     }
   }, {
     key: "_getTableLines",
@@ -11220,7 +11571,7 @@ var AssetsLoader = /*#__PURE__*/function () {
               window.images = null;
             case 14:
               // Set as loaded
-              _common_EventLock__WEBPACK_IMPORTED_MODULE_38__["default"].release("assets_loader:ready", true);
+              _common_EventLock__WEBPACK_IMPORTED_MODULE_38__["default"].release("assets_loader:ready");
               return _context.a(2, true);
           }
         }, _callee, this, [[8, 10, 11, 12], [1, 3, 4, 5]]);
@@ -11546,7 +11897,9 @@ var AssetsLoader = /*#__PURE__*/function () {
               testCanvas = document.createElement("canvas");
               testCanvas.width = img.naturalWidth || img.width;
               testCanvas.height = img.naturalHeight || img.height;
-              ctx = testCanvas.getContext("2d");
+              ctx = testCanvas.getContext("2d", {
+                alpha: false
+              });
               ctx.drawImage(img, 0, 0);
               ctx.getImageData(0, 0, 1, 1);
               return _context7.a(2, img);
@@ -11654,11 +12007,16 @@ var AssetsLoader = /*#__PURE__*/function () {
   }], [{
     key: "getAssetByElement",
     value: function getAssetByElement(element) {
+      var _AssetsLoader$config$;
+      if ((_AssetsLoader$config$ = AssetsLoader.config.cache.asset_to_element) !== null && _AssetsLoader$config$ !== void 0 && _AssetsLoader$config$[element.src]) {
+        return AssetsLoader.config.cache.asset_to_element[element.src];
+      }
       for (var _i4 = 0, _Object$entries3 = Object.entries(AssetsLoader.config.images); _i4 < _Object$entries3.length; _i4++) {
         var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i4], 2),
           id = _Object$entries3$_i[0],
           asset = _Object$entries3$_i[1];
         if (asset.document.src === element.src) {
+          AssetsLoader.config.cache.asset_to_element[element.src] = asset;
           return asset;
         }
       }
@@ -11674,7 +12032,10 @@ _defineProperty(AssetsLoader, "config", {
   cdn_enabled: [true, true],
   cdn_errors_count: [0, 0],
   cdn_errors_count_threshold: [1, 1],
-  flags_manifest: {}
+  flags_manifest: {},
+  cache: {
+    asset_to_element: {}
+  }
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AssetsLoader);
 
@@ -11719,66 +12080,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var core_js_modules_es_date_to_primitive_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! core-js/modules/es.date.to-primitive.js */ "./node_modules/core-js/modules/es.date.to-primitive.js");
 /* harmony import */ var core_js_modules_es_date_to_primitive_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_date_to_primitive_js__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! core-js/modules/es.number.constructor.js */ "./node_modules/core-js/modules/es.number.constructor.js");
-/* harmony import */ var core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! core-js/modules/es.object.define-property.js */ "./node_modules/core-js/modules/es.object.define-property.js");
-/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var core_js_modules_es_object_get_prototype_of_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! core-js/modules/es.object.get-prototype-of.js */ "./node_modules/core-js/modules/es.object.get-prototype-of.js");
-/* harmony import */ var core_js_modules_es_object_get_prototype_of_js__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_prototype_of_js__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var core_js_modules_es_object_set_prototype_of_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! core-js/modules/es.object.set-prototype-of.js */ "./node_modules/core-js/modules/es.object.set-prototype-of.js");
-/* harmony import */ var core_js_modules_es_object_set_prototype_of_js__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_set_prototype_of_js__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var core_js_modules_es_parse_float_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! core-js/modules/es.parse-float.js */ "./node_modules/core-js/modules/es.parse-float.js");
-/* harmony import */ var core_js_modules_es_parse_float_js__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_float_js__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! core-js/modules/es.promise.js */ "./node_modules/core-js/modules/es.promise.js");
-/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_20__);
-/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
-/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_21__);
-/* harmony import */ var core_js_modules_es_regexp_flags_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! core-js/modules/es.regexp.flags.js */ "./node_modules/core-js/modules/es.regexp.flags.js");
-/* harmony import */ var core_js_modules_es_regexp_flags_js__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_flags_js__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! core-js/modules/es.regexp.test.js */ "./node_modules/core-js/modules/es.regexp.test.js");
-/* harmony import */ var core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var core_js_modules_es_string_ends_with_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! core-js/modules/es.string.ends-with.js */ "./node_modules/core-js/modules/es.string.ends-with.js");
-/* harmony import */ var core_js_modules_es_string_ends_with_js__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_ends_with_js__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! core-js/modules/es.string.iterator.js */ "./node_modules/core-js/modules/es.string.iterator.js");
-/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_25__);
-/* harmony import */ var core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! core-js/modules/es.string.trim.js */ "./node_modules/core-js/modules/es.string.trim.js");
-/* harmony import */ var core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_26__);
-/* harmony import */ var core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! core-js/modules/esnext.iterator.constructor.js */ "./node_modules/core-js/modules/esnext.iterator.constructor.js");
-/* harmony import */ var core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_27__);
-/* harmony import */ var core_js_modules_esnext_iterator_filter_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! core-js/modules/esnext.iterator.filter.js */ "./node_modules/core-js/modules/esnext.iterator.filter.js");
-/* harmony import */ var core_js_modules_esnext_iterator_filter_js__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_filter_js__WEBPACK_IMPORTED_MODULE_28__);
-/* harmony import */ var core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! core-js/modules/esnext.iterator.for-each.js */ "./node_modules/core-js/modules/esnext.iterator.for-each.js");
-/* harmony import */ var core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_29__);
-/* harmony import */ var core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! core-js/modules/esnext.iterator.map.js */ "./node_modules/core-js/modules/esnext.iterator.map.js");
-/* harmony import */ var core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_30__);
-/* harmony import */ var core_js_modules_esnext_iterator_some_js__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! core-js/modules/esnext.iterator.some.js */ "./node_modules/core-js/modules/esnext.iterator.some.js");
-/* harmony import */ var core_js_modules_esnext_iterator_some_js__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_some_js__WEBPACK_IMPORTED_MODULE_31__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_32__);
-/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
-/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_33__);
-/* harmony import */ var core_js_modules_web_url_js__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! core-js/modules/web.url.js */ "./node_modules/core-js/modules/web.url.js");
-/* harmony import */ var core_js_modules_web_url_js__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_js__WEBPACK_IMPORTED_MODULE_34__);
-/* harmony import */ var core_js_modules_web_url_to_json_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! core-js/modules/web.url.to-json.js */ "./node_modules/core-js/modules/web.url.to-json.js");
-/* harmony import */ var core_js_modules_web_url_to_json_js__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_to_json_js__WEBPACK_IMPORTED_MODULE_35__);
-/* harmony import */ var core_js_modules_web_url_search_params_js__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! core-js/modules/web.url-search-params.js */ "./node_modules/core-js/modules/web.url-search-params.js");
-/* harmony import */ var core_js_modules_web_url_search_params_js__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_search_params_js__WEBPACK_IMPORTED_MODULE_36__);
-/* harmony import */ var core_js_modules_web_url_search_params_delete_js__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! core-js/modules/web.url-search-params.delete.js */ "./node_modules/core-js/modules/web.url-search-params.delete.js");
-/* harmony import */ var core_js_modules_web_url_search_params_delete_js__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_search_params_delete_js__WEBPACK_IMPORTED_MODULE_37__);
-/* harmony import */ var core_js_modules_web_url_search_params_has_js__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! core-js/modules/web.url-search-params.has.js */ "./node_modules/core-js/modules/web.url-search-params.has.js");
-/* harmony import */ var core_js_modules_web_url_search_params_has_js__WEBPACK_IMPORTED_MODULE_38___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_search_params_has_js__WEBPACK_IMPORTED_MODULE_38__);
-/* harmony import */ var core_js_modules_web_url_search_params_size_js__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! core-js/modules/web.url-search-params.size.js */ "./node_modules/core-js/modules/web.url-search-params.size.js");
-/* harmony import */ var core_js_modules_web_url_search_params_size_js__WEBPACK_IMPORTED_MODULE_39___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_search_params_size_js__WEBPACK_IMPORTED_MODULE_39__);
-/* harmony import */ var _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./../scores_calculation/Api */ "./assets/src/scores/scores_calculation/Api.js");
-/* harmony import */ var _TableGenerator__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./TableGenerator */ "./assets/src/scores/table_generator/TableGenerator.js");
-/* harmony import */ var _AssetsLoader__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./AssetsLoader */ "./assets/src/scores/table_generator/AssetsLoader.js");
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! core-js/modules/es.function.name.js */ "./node_modules/core-js/modules/es.function.name.js");
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! core-js/modules/es.number.constructor.js */ "./node_modules/core-js/modules/es.number.constructor.js");
+/* harmony import */ var core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_number_constructor_js__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var core_js_modules_es_object_define_properties_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! core-js/modules/es.object.define-properties.js */ "./node_modules/core-js/modules/es.object.define-properties.js");
+/* harmony import */ var core_js_modules_es_object_define_properties_js__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_define_properties_js__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! core-js/modules/es.object.define-property.js */ "./node_modules/core-js/modules/es.object.define-property.js");
+/* harmony import */ var core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_define_property_js__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptor_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! core-js/modules/es.object.get-own-property-descriptor.js */ "./node_modules/core-js/modules/es.object.get-own-property-descriptor.js");
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptor_js__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_own_property_descriptor_js__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! core-js/modules/es.object.get-own-property-descriptors.js */ "./node_modules/core-js/modules/es.object.get-own-property-descriptors.js");
+/* harmony import */ var core_js_modules_es_object_get_own_property_descriptors_js__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_own_property_descriptors_js__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var core_js_modules_es_object_get_prototype_of_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! core-js/modules/es.object.get-prototype-of.js */ "./node_modules/core-js/modules/es.object.get-prototype-of.js");
+/* harmony import */ var core_js_modules_es_object_get_prototype_of_js__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_get_prototype_of_js__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! core-js/modules/es.object.keys.js */ "./node_modules/core-js/modules/es.object.keys.js");
+/* harmony import */ var core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var core_js_modules_es_object_set_prototype_of_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! core-js/modules/es.object.set-prototype-of.js */ "./node_modules/core-js/modules/es.object.set-prototype-of.js");
+/* harmony import */ var core_js_modules_es_object_set_prototype_of_js__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_set_prototype_of_js__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var core_js_modules_es_parse_float_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! core-js/modules/es.parse-float.js */ "./node_modules/core-js/modules/es.parse-float.js");
+/* harmony import */ var core_js_modules_es_parse_float_js__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_float_js__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! core-js/modules/es.promise.js */ "./node_modules/core-js/modules/es.promise.js");
+/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_26__);
+/* harmony import */ var core_js_modules_es_regexp_flags_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! core-js/modules/es.regexp.flags.js */ "./node_modules/core-js/modules/es.regexp.flags.js");
+/* harmony import */ var core_js_modules_es_regexp_flags_js__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_flags_js__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! core-js/modules/es.regexp.test.js */ "./node_modules/core-js/modules/es.regexp.test.js");
+/* harmony import */ var core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_test_js__WEBPACK_IMPORTED_MODULE_28__);
+/* harmony import */ var core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! core-js/modules/es.regexp.to-string.js */ "./node_modules/core-js/modules/es.regexp.to-string.js");
+/* harmony import */ var core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_to_string_js__WEBPACK_IMPORTED_MODULE_29__);
+/* harmony import */ var core_js_modules_es_string_ends_with_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! core-js/modules/es.string.ends-with.js */ "./node_modules/core-js/modules/es.string.ends-with.js");
+/* harmony import */ var core_js_modules_es_string_ends_with_js__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_ends_with_js__WEBPACK_IMPORTED_MODULE_30__);
+/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! core-js/modules/es.string.iterator.js */ "./node_modules/core-js/modules/es.string.iterator.js");
+/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_31__);
+/* harmony import */ var core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! core-js/modules/es.string.replace.js */ "./node_modules/core-js/modules/es.string.replace.js");
+/* harmony import */ var core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_32__);
+/* harmony import */ var core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! core-js/modules/es.string.trim.js */ "./node_modules/core-js/modules/es.string.trim.js");
+/* harmony import */ var core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_trim_js__WEBPACK_IMPORTED_MODULE_33__);
+/* harmony import */ var core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! core-js/modules/esnext.iterator.constructor.js */ "./node_modules/core-js/modules/esnext.iterator.constructor.js");
+/* harmony import */ var core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_constructor_js__WEBPACK_IMPORTED_MODULE_34__);
+/* harmony import */ var core_js_modules_esnext_iterator_filter_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! core-js/modules/esnext.iterator.filter.js */ "./node_modules/core-js/modules/esnext.iterator.filter.js");
+/* harmony import */ var core_js_modules_esnext_iterator_filter_js__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_filter_js__WEBPACK_IMPORTED_MODULE_35__);
+/* harmony import */ var core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! core-js/modules/esnext.iterator.for-each.js */ "./node_modules/core-js/modules/esnext.iterator.for-each.js");
+/* harmony import */ var core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_for_each_js__WEBPACK_IMPORTED_MODULE_36__);
+/* harmony import */ var core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! core-js/modules/esnext.iterator.map.js */ "./node_modules/core-js/modules/esnext.iterator.map.js");
+/* harmony import */ var core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_map_js__WEBPACK_IMPORTED_MODULE_37__);
+/* harmony import */ var core_js_modules_esnext_iterator_some_js__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! core-js/modules/esnext.iterator.some.js */ "./node_modules/core-js/modules/esnext.iterator.some.js");
+/* harmony import */ var core_js_modules_esnext_iterator_some_js__WEBPACK_IMPORTED_MODULE_38___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_iterator_some_js__WEBPACK_IMPORTED_MODULE_38__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_39___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_39__);
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_40___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_40__);
+/* harmony import */ var core_js_modules_web_url_js__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! core-js/modules/web.url.js */ "./node_modules/core-js/modules/web.url.js");
+/* harmony import */ var core_js_modules_web_url_js__WEBPACK_IMPORTED_MODULE_41___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_js__WEBPACK_IMPORTED_MODULE_41__);
+/* harmony import */ var core_js_modules_web_url_to_json_js__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! core-js/modules/web.url.to-json.js */ "./node_modules/core-js/modules/web.url.to-json.js");
+/* harmony import */ var core_js_modules_web_url_to_json_js__WEBPACK_IMPORTED_MODULE_42___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_to_json_js__WEBPACK_IMPORTED_MODULE_42__);
+/* harmony import */ var core_js_modules_web_url_search_params_js__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! core-js/modules/web.url-search-params.js */ "./node_modules/core-js/modules/web.url-search-params.js");
+/* harmony import */ var core_js_modules_web_url_search_params_js__WEBPACK_IMPORTED_MODULE_43___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_search_params_js__WEBPACK_IMPORTED_MODULE_43__);
+/* harmony import */ var core_js_modules_web_url_search_params_delete_js__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! core-js/modules/web.url-search-params.delete.js */ "./node_modules/core-js/modules/web.url-search-params.delete.js");
+/* harmony import */ var core_js_modules_web_url_search_params_delete_js__WEBPACK_IMPORTED_MODULE_44___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_search_params_delete_js__WEBPACK_IMPORTED_MODULE_44__);
+/* harmony import */ var core_js_modules_web_url_search_params_has_js__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! core-js/modules/web.url-search-params.has.js */ "./node_modules/core-js/modules/web.url-search-params.has.js");
+/* harmony import */ var core_js_modules_web_url_search_params_has_js__WEBPACK_IMPORTED_MODULE_45___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_search_params_has_js__WEBPACK_IMPORTED_MODULE_45__);
+/* harmony import */ var core_js_modules_web_url_search_params_size_js__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! core-js/modules/web.url-search-params.size.js */ "./node_modules/core-js/modules/web.url-search-params.size.js");
+/* harmony import */ var core_js_modules_web_url_search_params_size_js__WEBPACK_IMPORTED_MODULE_46___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_search_params_size_js__WEBPACK_IMPORTED_MODULE_46__);
+/* harmony import */ var _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./../scores_calculation/Api */ "./assets/src/scores/scores_calculation/Api.js");
+/* harmony import */ var _TableGenerator__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./TableGenerator */ "./assets/src/scores/table_generator/TableGenerator.js");
+/* harmony import */ var _AssetsLoader__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./AssetsLoader */ "./assets/src/scores/table_generator/AssetsLoader.js");
+/* harmony import */ var _common_EventLock__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ../../common/EventLock */ "./assets/src/common/EventLock.js");
 
 
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t.return || t.return(); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i.return) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+
+
+
+
+
+
+
 
 
 
@@ -11830,6 +12218,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 
 
 
+
 var Canvas = /*#__PURE__*/function () {
   function Canvas() {
     _classCallCheck(this, Canvas);
@@ -11837,29 +12226,28 @@ var Canvas = /*#__PURE__*/function () {
     this._dataUrl = "";
     this._url = "";
     this._error = "";
+    this._performancePoints = 0;
+    this._isSlowDevice = false;
+    this._awaitPerformance();
   }
   return _createClass(Canvas, [{
     key: "canvas",
     get: function get() {
-      return this._canvas ? this._canvas : null;
+      return this._canvas || null;
     },
-    set: function set(canvas) {
-      this._canvas = canvas;
+    set: function set(c) {
+      this._canvas = c;
       return this;
     }
   }, {
     key: "dataUrl",
     get: function get() {
-      if (!this._canvas) {
-        return "";
-      }
-      if (!this._dataUrl) {
-        this._dataUrl = this._canvas.toDataURL() || "";
-      }
+      if (!this._canvas) return "";
+      if (!this._dataUrl) this._dataUrl = this._canvas.toDataURL() || "";
       return this._dataUrl;
     },
-    set: function set(dataUrl) {
-      this._canvas = dataUrl;
+    set: function set(d) {
+      this._canvas = d;
       return this;
     }
   }, {
@@ -11868,11 +12256,10 @@ var Canvas = /*#__PURE__*/function () {
       return this._error;
     }
   }, {
-    key: "getUrl",
+    key: "getBlob",
     value: function () {
-      var _getUrl = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var _getBlob = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
         var _this = this;
-        var _t, _t2;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.n) {
             case 0:
@@ -11880,30 +12267,65 @@ var Canvas = /*#__PURE__*/function () {
                 _context.n = 1;
                 break;
               }
-              return _context.a(2, "");
+              return _context.a(2, null);
             case 1:
-              if (this._url) {
-                _context.n = 4;
+              if (this._blob) {
+                _context.n = 3;
                 break;
               }
-              _t2 = URL;
               _context.n = 2;
               return new Promise(function (resolve) {
                 return _this._canvas.toBlob(resolve);
               });
             case 2:
-              _t = _t2.createObjectURL.call(_t2, _context.v);
+              this._blob = _context.v;
+            case 3:
+              return _context.a(2, this._blob);
+          }
+        }, _callee, this);
+      }));
+      function getBlob() {
+        return _getBlob.apply(this, arguments);
+      }
+      return getBlob;
+    }()
+  }, {
+    key: "getUrl",
+    value: function () {
+      var _getUrl = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+        var _this2 = this;
+        var _t, _t2;
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.n) {
+            case 0:
+              if (this._canvas) {
+                _context2.n = 1;
+                break;
+              }
+              return _context2.a(2, "");
+            case 1:
+              if (this._url) {
+                _context2.n = 4;
+                break;
+              }
+              _t2 = URL;
+              _context2.n = 2;
+              return new Promise(function (r) {
+                return _this2._canvas.toBlob(r);
+              });
+            case 2:
+              _t = _t2.createObjectURL.call(_t2, _context2.v);
               if (_t) {
-                _context.n = 3;
+                _context2.n = 3;
                 break;
               }
               _t = "";
             case 3:
               this._url = _t;
             case 4:
-              return _context.a(2, this._url);
+              return _context2.a(2, this._url);
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
       function getUrl() {
         return _getUrl.apply(this, arguments);
@@ -11912,563 +12334,946 @@ var Canvas = /*#__PURE__*/function () {
     }()
   }, {
     key: "url",
+    get: function get() {
+      return this._url;
+    },
     set: function set(url) {
       this._url = url;
       return this;
     }
   }, {
-    key: "convertHTMLToCanvas",
+    key: "htmlToCanvas",
     value: function () {
-      var _convertHTMLToCanvas = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-        var _t3;
-        return _regenerator().w(function (_context2) {
-          while (1) switch (_context2.p = _context2.n) {
-            case 0:
-              // Reset canvas variable
-              this._canvas = null;
-              this._dataUrl = "";
-              this._url = "";
-              this._error = "";
-              _context2.p = 1;
-              _context2.n = 2;
-              return this._htmlToCanvas();
-            case 2:
-              this._canvas = _context2.v;
-              return _context2.a(2, true);
-            case 3:
-              _context2.p = 3;
-              _t3 = _context2.v;
-              this._error = _t3.message;
-              _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_40__["default"].logError("Canvas.convertHTMLToCanvas: \"".concat(this._error, "\"."));
-              return _context2.a(2, false);
-          }
-        }, _callee2, this, [[1, 3]]);
-      }));
-      function convertHTMLToCanvas() {
-        return _convertHTMLToCanvas.apply(this, arguments);
-      }
-      return convertHTMLToCanvas;
-    }()
-  }, {
-    key: "convertHTMLToImage",
-    value: function () {
-      var _convertHTMLToImage = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-        var format,
-          result,
+      var _htmlToCanvas = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+        var useDOM,
+          data,
+          useOffscreen,
+          canvas,
+          domCanvas,
+          ctx,
+          bitmap,
           _args3 = arguments,
+          _t3,
           _t4;
         return _regenerator().w(function (_context3) {
           while (1) switch (_context3.p = _context3.n) {
             case 0:
-              format = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : "blob";
-              // Reset canvas variable
+              useDOM = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : false;
               this._canvas = null;
               this._dataUrl = "";
               this._url = "";
               this._error = "";
+              _context3.n = 1;
+              return _common_EventLock__WEBPACK_IMPORTED_MODULE_50__["default"].wait("canvas:pp_ready");
+            case 1:
               _context3.p = 1;
               _context3.n = 2;
-              return this._htmlToImage(format);
+              return this._collectAllElementsData();
             case 2:
-              result = _context3.v;
-              this._canvas = result.canvas;
-              if (format === "blob") {
-                this._url = result.image.src;
-              } else {
-                this._dataUrl = result.image.src;
+              data = _context3.v;
+              // Render canvas (main thread or offscreen)
+              useOffscreen = typeof OffscreenCanvas !== "undefined";
+              if (!useOffscreen) {
+                _context3.n = 4;
+                break;
               }
-              return _context3.a(2, result.image);
+              _context3.n = 3;
+              return this._renderOffscreen(data);
             case 3:
-              _context3.p = 3;
+              _t3 = _context3.v;
+              _context3.n = 6;
+              break;
+            case 4:
+              _context3.n = 5;
+              return this._renderOnMainThread(data);
+            case 5:
+              _t3 = _context3.v;
+            case 6:
+              canvas = _t3;
+              // Convert canvas to HTML canvas
+              if (useOffscreen && useDOM) {
+                domCanvas = document.createElement("canvas");
+                domCanvas.width = canvas.width;
+                domCanvas.height = canvas.height;
+                ctx = domCanvas.getContext("2d", {
+                  alpha: false
+                });
+                bitmap = canvas.transferToImageBitmap();
+                ctx.drawImage(bitmap, 0, 0);
+                canvas = domCanvas;
+              }
+              canvas.classList.add("js-canvas-image");
+              this._canvas = canvas;
+              _context3.n = 7;
+              return new Promise(requestAnimationFrame);
+            case 7:
+              return _context3.a(2, canvas);
+            case 8:
+              _context3.p = 8;
               _t4 = _context3.v;
-              console.log(_t4);
               this._error = _t4.message;
-              _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_40__["default"].logError("Canvas.convertHTMLToImage: \"".concat(this._error, "\"."));
+              _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_47__["default"].logError("Canvas.htmlToCanvas: \"".concat(this._error, "\""));
               return _context3.a(2, null);
           }
-        }, _callee3, this, [[1, 3]]);
+        }, _callee3, this, [[1, 8]]);
       }));
-      function convertHTMLToImage() {
-        return _convertHTMLToImage.apply(this, arguments);
+      function htmlToCanvas() {
+        return _htmlToCanvas.apply(this, arguments);
       }
-      return convertHTMLToImage;
+      return htmlToCanvas;
     }()
   }, {
-    key: "_htmlToCanvas",
+    key: "htmlToPng",
     value: function () {
-      var _htmlToCanvas2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
-        var selectors, elements, root, rect, scale, targetHeight, canvas, ctx;
+      var _htmlToPng = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
+        var format,
+          canvas,
+          url,
+          blob,
+          _blob,
+          img,
+          _args4 = arguments,
+          _t5;
         return _regenerator().w(function (_context4) {
-          while (1) switch (_context4.n) {
+          while (1) switch (_context4.p = _context4.n) {
+            case 0:
+              format = _args4.length > 0 && _args4[0] !== undefined ? _args4[0] : "blob";
+              _context4.n = 1;
+              return this.htmlToCanvas();
+            case 1:
+              canvas = _context4.v;
+              if (canvas) {
+                _context4.n = 2;
+                break;
+              }
+              return _context4.a(2, null);
+            case 2:
+              _context4.p = 2;
+              if (!(format === "blob")) {
+                _context4.n = 7;
+                break;
+              }
+              if (!canvas.convertToBlob) {
+                _context4.n = 4;
+                break;
+              }
+              _context4.n = 3;
+              return canvas.convertToBlob();
+            case 3:
+              blob = _context4.v;
+              _context4.n = 6;
+              break;
+            case 4:
+              _context4.n = 5;
+              return new Promise(function (resolve) {
+                return canvas.toBlob(resolve);
+              });
+            case 5:
+              blob = _context4.v;
+            case 6:
+              this._blob = blob;
+              url = URL.createObjectURL(blob);
+              this._url = url;
+              _context4.n = 12;
+              break;
+            case 7:
+              if (!(canvas instanceof OffscreenCanvas)) {
+                _context4.n = 10;
+                break;
+              }
+              _context4.n = 8;
+              return canvas.convertToBlob();
+            case 8:
+              _blob = _context4.v;
+              _context4.n = 9;
+              return new Promise(function (resolve, reject) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                  return resolve(reader.result);
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(_blob);
+              });
+            case 9:
+              url = _context4.v;
+              _context4.n = 11;
+              break;
+            case 10:
+              // Normal canvas -> synchronous
+              url = canvas.toDataURL("image/png", 1);
+            case 11:
+              this._dataUrl = url;
+            case 12:
+              _context4.n = 13;
+              return this._requestAnimationFrame();
+            case 13:
+              img = document.createElement("img");
+              img.classList.add("js-canvas-image");
+              img.src = url;
+              _context4.n = 14;
+              return this._requestAnimationFrame();
+            case 14:
+              if (!(!img.complete || img.naturalWidth === 0)) {
+                _context4.n = 15;
+                break;
+              }
+              _context4.n = 15;
+              return new Promise(function (resolve, reject) {
+                img.onload = resolve;
+                img.onerror = reject;
+              });
+            case 15:
+              _context4.n = 16;
+              return this._requestAnimationFrame();
+            case 16:
+              return _context4.a(2, img);
+            case 17:
+              _context4.p = 17;
+              _t5 = _context4.v;
+              this._error = _t5.message;
+              _scores_calculation_Api__WEBPACK_IMPORTED_MODULE_47__["default"].logError("Canvas.htmlToPng: \"".concat(this._error, "\""));
+              return _context4.a(2, null);
+          }
+        }, _callee4, this, [[2, 17]]);
+      }));
+      function htmlToPng() {
+        return _htmlToPng.apply(this, arguments);
+      }
+      return htmlToPng;
+    }()
+  }, {
+    key: "_collectAllElementsData",
+    value: function () {
+      var _collectAllElementsData2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
+        var selectors, elements, root, rect, scale, targetHeight, backgrounds, flags, images, texts;
+        return _regenerator().w(function (_context5) {
+          while (1) switch (_context5.n) {
             case 0:
               selectors = {
                 backgrounds: [".canvas-table .scores .header", ".canvas-table .scores .body .team", ".canvas-table .scores .body .team .players .player td", ".canvas-table .results", ".canvas-table .results .body .players .player", ".canvas-table .results .body .players .player .tier > div"],
                 images: ".canvas-table img",
                 flags: {
                   backgrounds: ".canvas-table .scores .body .team .players .flag > div > div:first-of-type > div",
-                  images: "._preload img.canvas-image-flags_sprite",
+                  images: "._preload .canvas-image-flags_sprite",
                   borders: ".canvas-table .scores .body .team .players .flag > div > div:last-of-type"
-                }
-              }; // Show the element
-              elements = _TableGenerator__WEBPACK_IMPORTED_MODULE_41__["default"].getElements();
-              elements.document.style.display = "block";
-
-              // Set the element we will capture
-              root = elements.body;
-              rect = root.getBoundingClientRect();
-              scale = Canvas.TARGET_WIDTH / rect.width;
-              targetHeight = rect.height * scale;
-              canvas = document.createElement("canvas");
-              canvas.width = Canvas.TARGET_WIDTH;
-              canvas.height = Math.round(targetHeight);
-              ctx = canvas.getContext("2d"); // Scale everything so we can draw in CSS pixels
-              ctx.scale(scale, scale);
-              ctx.clearRect(0, 0, rect.width, rect.height);
-
-              // Draw content
-              _context4.n = 1;
-              return Canvas._drawBackgrounds(ctx, root, rect, selectors.backgrounds);
-            case 1:
-              _context4.n = 2;
-              return Canvas._drawFlags(ctx, root, rect, selectors.flags.backgrounds, selectors.flags.images, selectors.flags.borders);
-            case 2:
-              _context4.n = 3;
-              return Canvas._drawImages(ctx, root, rect, selectors.images);
-            case 3:
-              _context4.n = 4;
-              return Canvas._drawTexts(ctx, root, rect);
-            case 4:
-              // Hide the element
-              elements.document.removeAttribute("style");
-              return _context4.a(2, canvas);
-          }
-        }, _callee4);
-      }));
-      function _htmlToCanvas() {
-        return _htmlToCanvas2.apply(this, arguments);
-      }
-      return _htmlToCanvas;
-    }()
-  }, {
-    key: "_htmlToImage",
-    value: function () {
-      var _htmlToImage2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
-        var format,
-          canvas,
-          url,
-          img,
-          testCanvas,
-          ctx,
-          _args5 = arguments,
-          _t5,
-          _t6;
-        return _regenerator().w(function (_context5) {
-          while (1) switch (_context5.p = _context5.n) {
-            case 0:
-              format = _args5.length > 0 && _args5[0] !== undefined ? _args5[0] : "blob";
+                },
+                texts: ".canvas-table p.t > span"
+              };
               _context5.n = 1;
-              return this._htmlToCanvas();
+              return this._requestAnimationFrame();
             case 1:
-              canvas = _context5.v;
+              elements = _TableGenerator__WEBPACK_IMPORTED_MODULE_48__["default"].getElements();
+              elements.document.style.display = "block";
+              root = elements.body;
+              rect = root.getBoundingClientRect(); // Scale factor to fit target width
+              scale = Canvas.TARGET_WIDTH / rect.width;
+              targetHeight = rect.height * scale; // Collect all data, then scale positions & sizes
+              backgrounds = Canvas._collectBackgrounds(root, rect, selectors.backgrounds).map(function (b) {
+                return _objectSpread(_objectSpread({}, b), {}, {
+                  x: b.x * scale,
+                  y: b.y * scale,
+                  w: b.w * scale,
+                  h: b.h * scale,
+                  radius: b.radius ? {
+                    tl: b.radius.tl * scale,
+                    tr: b.radius.tr * scale,
+                    br: b.radius.br * scale,
+                    bl: b.radius.bl * scale
+                  } : null
+                });
+              });
               _context5.n = 2;
-              return new Promise(function (r) {
-                return setTimeout(r, 0);
-              });
+              return new Promise(requestAnimationFrame);
             case 2:
-              if (!(format === "blob")) {
-                _context5.n = 4;
-                break;
-              }
-              _t5 = URL;
+              flags = Canvas._collectFlags(root, rect, selectors.flags.backgrounds, selectors.flags.images, selectors.flags.borders).map(function (f) {
+                // Only scale destination rectangle, not source
+                if (f.isBorder) {
+                  // Borders also scale dx/dy/dw/dh
+                  return _objectSpread(_objectSpread({}, f), {}, {
+                    x: f.x * scale,
+                    y: f.y * scale,
+                    w: f.w * scale,
+                    h: f.h * scale,
+                    bw: f.bw * scale,
+                    radius: f.radius * scale
+                  });
+                }
+                return _objectSpread(_objectSpread({}, f), {}, {
+                  dx: f.dx * scale,
+                  dy: f.dy * scale,
+                  dw: f.dw * scale,
+                  dh: f.dh * scale,
+                  borderRadius: f.borderRadius * scale
+                });
+              });
               _context5.n = 3;
-              return new Promise(function (resolve) {
-                return canvas.toBlob(resolve);
-              });
+              return this._requestAnimationFrame();
             case 3:
-              url = _t5.createObjectURL.call(_t5, _context5.v);
+              images = Canvas._collectImages(root, rect, selectors.images).map(function (im) {
+                return _objectSpread(_objectSpread({}, im), {}, {
+                  dx: im.dx * scale,
+                  dy: im.dy * scale,
+                  dw: im.dw * scale,
+                  dh: im.dh * scale
+                });
+              });
+              _context5.n = 4;
+              return this._requestAnimationFrame();
+            case 4:
+              texts = Canvas._collectTexts(root, rect, selectors.texts).map(function (t) {
+                return _objectSpread(_objectSpread({}, t), {}, {
+                  x0: t.x0 * scale,
+                  y0: t.y0 * scale,
+                  w: t.w * scale,
+                  h: t.h * scale,
+                  ascent: t.ascent * scale,
+                  font: t.font.replace(/(\d+)px/, function (_, px) {
+                    return "".concat(px * scale, "px");
+                  }) // scale font size
+                });
+              });
               _context5.n = 5;
-              break;
-            case 4:
-              url = canvas.toDataURL();
+              return this._requestAnimationFrame();
             case 5:
-              _context5.n = 6;
-              return new Promise(function (r) {
-                return setTimeout(r, 0);
-              });
-            case 6:
-              // Create an image element
-              img = document.createElement("img");
-              img.classList.add("canvas-image", "js-canvas-image");
-              img.src = url;
-              _context5.n = 7;
-              return new Promise(function (r) {
-                return setTimeout(r, 0);
-              });
-            case 7:
-              if (!img.decode) {
-                _context5.n = 11;
-                break;
-              }
-              _context5.p = 8;
-              _context5.n = 9;
-              return img.decode();
-            case 9:
+              elements.document.removeAttribute("style");
               return _context5.a(2, {
-                canvas: canvas,
-                image: img
-              });
-            case 10:
-              _context5.p = 10;
-              _t6 = _context5.v;
-            case 11:
-              _context5.n = 12;
-              return new Promise(function (resolve, reject) {
-                img.onload = resolve;
-                img.onerror = reject;
-              });
-            case 12:
-              testCanvas = document.createElement("canvas");
-              testCanvas.width = img.naturalWidth || img.width;
-              testCanvas.height = img.naturalHeight || img.height;
-              ctx = testCanvas.getContext("2d");
-              ctx.drawImage(img, 0, 0);
-              ctx.getImageData(0, 0, 1, 1);
-              return _context5.a(2, {
-                canvas: canvas,
-                image: img
+                width: Canvas.TARGET_WIDTH,
+                height: Math.round(targetHeight),
+                backgrounds: backgrounds,
+                flags: flags,
+                images: images,
+                texts: texts
               });
           }
-        }, _callee5, this, [[8, 10]]);
+        }, _callee5, this);
       }));
-      function _htmlToImage() {
-        return _htmlToImage2.apply(this, arguments);
+      function _collectAllElementsData() {
+        return _collectAllElementsData2.apply(this, arguments);
       }
-      return _htmlToImage;
+      return _collectAllElementsData;
     }()
-  }], [{
-    key: "_drawBackgrounds",
+  }, {
+    key: "_renderOffscreen",
     value: function () {
-      var _drawBackgrounds2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(ctx, root, rootRect, selectors) {
-        var elements, items;
+      var _renderOffscreen2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(data) {
+        var canvas, ctx, _iterator, _step, b, _b$radius, tl, tr, br, bl, prevStrokeStyle, prevLineWidth, _iterator2, _step2, f, r, _iterator3, _step3, im, lastFont, lastColor, lastAlign, _iterator4, _step4, t, x, _t6, _t7;
         return _regenerator().w(function (_context6) {
-          while (1) switch (_context6.n) {
+          while (1) switch (_context6.p = _context6.n) {
             case 0:
-              // Collect all elements matching selectors
-              elements = [];
-              (function walk(el) {
-                if (selectors.some(function (sel) {
-                  return el.matches(sel);
-                })) elements.push(el);
-                Array.from(el.children).forEach(walk);
-              })(root);
-
-              // Capture coordinates and styles **once**, relative to root
-              items = elements.map(function (el) {
-                var style = getComputedStyle(el);
-                var r = el.getBoundingClientRect();
-                return {
-                  x: r.left - rootRect.left,
-                  y: r.top - rootRect.top,
-                  w: r.width,
-                  h: r.height,
-                  bg: style.backgroundColor,
-                  opacity: parseFloat(style.opacity) || 1,
-                  radius: style.borderRadius || "0"
-                };
-              }); // Draw in chunks
+              canvas = new OffscreenCanvas(data.width, data.height);
+              ctx = canvas.getContext("2d", {
+                alpha: false
+              }); // ========= BACKGROUNDS =========
+              _iterator = _createForOfIteratorHelper(data.backgrounds);
+              try {
+                for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                  b = _step.value;
+                  if (b.opacity !== 1) {
+                    ctx.save();
+                    ctx.globalAlpha = b.opacity;
+                  }
+                  ctx.fillStyle = b.bg;
+                  if (b.radius) {
+                    _b$radius = b.radius, tl = _b$radius.tl, tr = _b$radius.tr, br = _b$radius.br, bl = _b$radius.bl;
+                    ctx.beginPath();
+                    ctx.moveTo(b.x + tl, b.y);
+                    ctx.lineTo(b.x + b.w - tr, b.y);
+                    ctx.quadraticCurveTo(b.x + b.w, b.y, b.x + b.w, b.y + tr);
+                    ctx.lineTo(b.x + b.w, b.y + b.h - br);
+                    ctx.quadraticCurveTo(b.x + b.w, b.y + b.h, b.x + b.w - br, b.y + b.h);
+                    ctx.lineTo(b.x + bl, b.y + b.h);
+                    ctx.quadraticCurveTo(b.x, b.y + b.h, b.x, b.y + b.h - bl);
+                    ctx.lineTo(b.x, b.y + tl);
+                    ctx.quadraticCurveTo(b.x, b.y, b.x + tl, b.y);
+                    ctx.closePath();
+                    ctx.fill();
+                  } else {
+                    ctx.fillRect(b.x, b.y, b.w, b.h);
+                  }
+                  if (b.opacity !== 1) {
+                    ctx.restore();
+                  }
+                }
+              } catch (err) {
+                _iterator.e(err);
+              } finally {
+                _iterator.f();
+              }
               _context6.n = 1;
-              return this._drawInChunks(items, Canvas.DRAWING_CHUNKS, function (item) {
-                if (!item.bg || item.bg === "transparent" || item.bg === "rgba(0,0,0,0)") return;
-                if (item.opacity !== 1) {
-                  ctx.save();
-                  ctx.globalAlpha = item.opacity;
-                }
-                ctx.fillStyle = item.bg;
-                if (item.radius && item.radius !== "0") {
-                  var radius = Canvas._parseBorderRadius(item.radius, item.w, item.h);
-                  Canvas._roundedBackgroundRectPath(ctx, item.x, item.y, item.w, item.h, radius);
-                  ctx.fill();
-                } else {
-                  ctx.fillRect(item.x, item.y, item.w, item.h);
-                }
-                if (item.opacity !== 1) ctx.restore();
-              });
+              return this._requestAnimationFrame();
             case 1:
-              return _context6.a(2);
-          }
-        }, _callee6, this);
-      }));
-      function _drawBackgrounds(_x, _x2, _x3, _x4) {
-        return _drawBackgrounds2.apply(this, arguments);
-      }
-      return _drawBackgrounds;
-    }()
-  }, {
-    key: "_drawFlags",
-    value: function () {
-      var _drawFlags2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(ctx, root, rootRect, selector, imageSelector, borderSelector) {
-        var img, els, items, borders, borderItems;
-        return _regenerator().w(function (_context7) {
-          while (1) switch (_context7.n) {
-            case 0:
-              if (selector) {
-                _context7.n = 1;
-                break;
-              }
-              return _context7.a(2);
-            case 1:
-              img = root.closest("body").querySelector(imageSelector);
-              if (img) {
-                _context7.n = 2;
-                break;
-              }
-              return _context7.a(2);
-            case 2:
-              els = Array.from(root.querySelectorAll(selector));
-              items = els.map(function (el) {
-                var style = getComputedStyle(el);
-                var r = el.getBoundingClientRect();
-                var asset = _AssetsLoader__WEBPACK_IMPORTED_MODULE_42__["default"].getAssetByElement(img);
-                var source = (asset === null || asset === void 0 ? void 0 : asset.bitmap) || (asset === null || asset === void 0 ? void 0 : asset.document);
-                var sx = -parseFloat(style.backgroundPositionX) || 0;
-                var sy = -parseFloat(style.backgroundPositionY) || 0;
-                var sw = Math.min(r.width * Canvas.FLAGS_SCALE, img.naturalWidth - sx);
-                var sh = Math.min(r.height * Canvas.FLAGS_SCALE, img.naturalHeight - sy);
-                return {
-                  dx: r.left - rootRect.left,
-                  dy: r.top - rootRect.top,
-                  dw: r.width,
-                  dh: r.height,
-                  sx: sx,
-                  sy: sy,
-                  sw: sw,
-                  sh: sh,
-                  source: source,
-                  borderRadius: parseFloat(style.borderRadius) || 0
-                };
-              }).filter(function (item) {
-                return item.source && item.sw > 0 && item.sh > 0;
-              });
-              _context7.n = 3;
-              return this._drawInChunks(items, Canvas.DRAWING_CHUNKS, function (item) {
-                if (item.borderRadius) {
-                  Canvas._roundedRectPath(ctx, item.dx, item.dy, item.dw, item.dh, item.borderRadius);
-                  ctx.save();
-                  ctx.clip();
-                }
-                ctx.drawImage(item.source, item.sx + 1, item.sy + 1, item.sw, item.sh, item.dx, item.dy, item.dw, item.dh);
-                if (item.borderRadius) ctx.restore();
-              });
+              // ========= FLAGS & BORDERS =========
+              prevStrokeStyle = ctx.strokeStyle;
+              prevLineWidth = ctx.lineWidth;
+              _iterator2 = _createForOfIteratorHelper(data.flags);
+              _context6.p = 2;
+              _iterator2.s();
             case 3:
-              if (!borderSelector) {
-                _context7.n = 4;
+              if ((_step2 = _iterator2.n()).done) {
+                _context6.n = 7;
                 break;
               }
-              borders = Array.from(root.querySelectorAll(borderSelector));
-              borderItems = borders.map(function (el) {
-                var style = getComputedStyle(el);
-                var r = el.getBoundingClientRect();
-                return {
-                  x: r.left - rootRect.left,
-                  y: r.top - rootRect.top,
-                  w: r.width,
-                  h: r.height,
-                  color: style.borderTopColor,
-                  bw: parseFloat(style.borderTopWidth) || 0,
-                  radius: parseFloat(style.borderRadius) || 0
-                };
-              }).filter(function (b) {
-                return b.bw > 0;
-              });
-              _context7.n = 4;
-              return this._drawInChunks(borderItems, Canvas.DRAWING_CHUNKS, function (item) {
-                ctx.save();
-                ctx.lineWidth = item.bw;
-                ctx.strokeStyle = item.color;
-                Canvas._roundedRectPath(ctx, item.x + item.bw / 2, item.y + item.bw / 2, item.w - item.bw, item.h - item.bw, item.radius);
+              f = _step2.value;
+              if (!f.isBorder) {
+                _context6.n = 4;
+                break;
+              }
+              ctx.strokeStyle = f.color;
+              ctx.lineWidth = f.bw;
+              if (f.radius) {
+                Canvas._roundedRectPath(ctx, f.x, f.y, f.w, f.h, f.radius);
                 ctx.stroke();
-                ctx.restore();
-              });
+              } else {
+                ctx.strokeRect(f.x, f.y, f.w, f.h);
+              }
+              return _context6.a(3, 6);
             case 4:
-              return _context7.a(2);
+              if (f.source) {
+                _context6.n = 5;
+                break;
+              }
+              return _context6.a(3, 6);
+            case 5:
+              // ---- clipped flag ----
+              if (f.borderRadius) {
+                ctx.save();
+                r = f.borderRadius;
+                ctx.beginPath();
+                ctx.moveTo(f.dx + r, f.dy);
+                ctx.lineTo(f.dx + f.dw - r, f.dy);
+                ctx.arcTo(f.dx + f.dw, f.dy, f.dx + f.dw, f.dy + r, r);
+                ctx.lineTo(f.dx + f.dw, f.dy + f.dh - r);
+                ctx.arcTo(f.dx + f.dw, f.dy + f.dh, f.dx + f.dw - r, f.dy + f.dh, r);
+                ctx.lineTo(f.dx + r, f.dy + f.dh);
+                ctx.arcTo(f.dx, f.dy + f.dh, f.dx, f.dy + f.dh - r, r);
+                ctx.lineTo(f.dx, f.dy + r);
+                ctx.arcTo(f.dx, f.dy, f.dx + r, f.dy, r);
+                ctx.closePath();
+                ctx.clip();
+              }
+              ctx.drawImage(f.source, f.sx, f.sy, f.sw, f.sh, f.dx, f.dy, f.dw, f.dh);
+              if (f.borderRadius) {
+                ctx.restore();
+              }
+            case 6:
+              _context6.n = 3;
+              break;
+            case 7:
+              _context6.n = 9;
+              break;
+            case 8:
+              _context6.p = 8;
+              _t6 = _context6.v;
+              _iterator2.e(_t6);
+            case 9:
+              _context6.p = 9;
+              _iterator2.f();
+              return _context6.f(9);
+            case 10:
+              _context6.n = 11;
+              return this._requestAnimationFrame();
+            case 11:
+              // ========= IMAGES =========
+              ctx.strokeStyle = prevStrokeStyle;
+              ctx.lineWidth = prevLineWidth;
+              _iterator3 = _createForOfIteratorHelper(data.images);
+              _context6.p = 12;
+              _iterator3.s();
+            case 13:
+              if ((_step3 = _iterator3.n()).done) {
+                _context6.n = 16;
+                break;
+              }
+              im = _step3.value;
+              if (im.source) {
+                _context6.n = 14;
+                break;
+              }
+              return _context6.a(3, 15);
+            case 14:
+              if (im.rotate180) {
+                ctx.save();
+                ctx.translate(im.dx + im.dw / 2, im.dy + im.dh / 2);
+                ctx.rotate(Math.PI);
+                ctx.drawImage(im.source, -im.dw / 2, -im.dh / 2, im.dw, im.dh);
+                ctx.restore();
+              } else {
+                ctx.drawImage(im.source, im.dx, im.dy, im.dw, im.dh);
+              }
+            case 15:
+              _context6.n = 13;
+              break;
+            case 16:
+              _context6.n = 18;
+              break;
+            case 17:
+              _context6.p = 17;
+              _t7 = _context6.v;
+              _iterator3.e(_t7);
+            case 18:
+              _context6.p = 18;
+              _iterator3.f();
+              return _context6.f(18);
+            case 19:
+              _context6.n = 20;
+              return this._requestAnimationFrame();
+            case 20:
+              // ========= TEXT =========
+              lastFont = "";
+              lastColor = "";
+              lastAlign = "";
+              ctx.textBaseline = "alphabetic";
+              _iterator4 = _createForOfIteratorHelper(data.texts);
+              try {
+                for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+                  t = _step4.value;
+                  if (t.font !== lastFont) {
+                    ctx.font = t.font;
+                    lastFont = t.font;
+                  }
+                  if (t.color !== lastColor) {
+                    ctx.fillStyle = t.color;
+                    lastColor = t.color;
+                  }
+                  if (t.textAlign !== lastAlign) {
+                    ctx.textAlign = t.textAlign;
+                    lastAlign = t.textAlign;
+                  }
+                  x = t.x0;
+                  if (t.textAlign === "center") x += t.w * 0.5;else if (t.textAlign === "right") x += t.w;
+                  ctx.fillText(t.text, x, t.y0 + t.ascent);
+                }
+              } catch (err) {
+                _iterator4.e(err);
+              } finally {
+                _iterator4.f();
+              }
+              _context6.n = 21;
+              return this._requestAnimationFrame();
+            case 21:
+              return _context6.a(2, canvas);
           }
-        }, _callee7, this);
+        }, _callee6, this, [[12, 17, 18, 19], [2, 8, 9, 10]]);
       }));
-      function _drawFlags(_x5, _x6, _x7, _x8, _x9, _x0) {
-        return _drawFlags2.apply(this, arguments);
+      function _renderOffscreen(_x) {
+        return _renderOffscreen2.apply(this, arguments);
       }
-      return _drawFlags;
+      return _renderOffscreen;
     }()
   }, {
-    key: "_drawImages",
+    key: "_renderOnMainThread",
     value: function () {
-      var _drawImages2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(ctx, root, rootRect, selector) {
-        var imgs, items;
+      var _renderOnMainThread2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(data) {
+        var canvas, ctx, _iterator5, _step5, b, prevStrokeStyle, prevLineWidth, _iterator6, _step6, f, r, _iterator7, _step7, im, lastFont, lastColor, lastAlign, _iterator8, _step8, t, x, _t8, _t9, _t0;
+        return _regenerator().w(function (_context7) {
+          while (1) switch (_context7.p = _context7.n) {
+            case 0:
+              canvas = document.createElement("canvas");
+              canvas.width = data.width;
+              canvas.height = data.height;
+              ctx = canvas.getContext("2d", {
+                alpha: false
+              }); // ========= BACKGROUNDS =========
+              _iterator5 = _createForOfIteratorHelper(data.backgrounds);
+              _context7.p = 1;
+              _iterator5.s();
+            case 2:
+              if ((_step5 = _iterator5.n()).done) {
+                _context7.n = 5;
+                break;
+              }
+              b = _step5.value;
+              if (b.bg) {
+                _context7.n = 3;
+                break;
+              }
+              return _context7.a(3, 4);
+            case 3:
+              if (b.opacity !== 1) {
+                ctx.save();
+                ctx.globalAlpha = b.opacity;
+              }
+              ctx.fillStyle = b.bg;
+              if (b.radius) {
+                Canvas._roundedBackgroundRectPath(ctx, b.x, b.y, b.w, b.h, b.radius);
+                ctx.fill();
+              } else {
+                ctx.fillRect(b.x, b.y, b.w, b.h);
+              }
+              if (b.opacity !== 1) {
+                ctx.restore();
+              }
+            case 4:
+              _context7.n = 2;
+              break;
+            case 5:
+              _context7.n = 7;
+              break;
+            case 6:
+              _context7.p = 6;
+              _t8 = _context7.v;
+              _iterator5.e(_t8);
+            case 7:
+              _context7.p = 7;
+              _iterator5.f();
+              return _context7.f(7);
+            case 8:
+              _context7.n = 9;
+              return this._requestAnimationFrame();
+            case 9:
+              // ========= FLAGS & BORDERS =========
+              prevStrokeStyle = ctx.strokeStyle;
+              prevLineWidth = ctx.lineWidth;
+              _iterator6 = _createForOfIteratorHelper(data.flags);
+              _context7.p = 10;
+              _iterator6.s();
+            case 11:
+              if ((_step6 = _iterator6.n()).done) {
+                _context7.n = 15;
+                break;
+              }
+              f = _step6.value;
+              if (!f.isBorder) {
+                _context7.n = 12;
+                break;
+              }
+              ctx.strokeStyle = f.color;
+              ctx.lineWidth = f.bw;
+              if (f.radius) {
+                Canvas._roundedRectPath(ctx, f.x, f.y, f.w, f.h, f.radius);
+                ctx.stroke();
+              } else {
+                ctx.strokeRect(f.x, f.y, f.w, f.h);
+              }
+              return _context7.a(3, 14);
+            case 12:
+              if (f.source) {
+                _context7.n = 13;
+                break;
+              }
+              return _context7.a(3, 14);
+            case 13:
+              // ---- clipped flag ----
+              if (f.borderRadius) {
+                ctx.save();
+                r = f.borderRadius;
+                ctx.beginPath();
+                ctx.moveTo(f.dx + r, f.dy);
+                ctx.lineTo(f.dx + f.dw - r, f.dy);
+                ctx.arcTo(f.dx + f.dw, f.dy, f.dx + f.dw, f.dy + r, r);
+                ctx.lineTo(f.dx + f.dw, f.dy + f.dh - r);
+                ctx.arcTo(f.dx + f.dw, f.dy + f.dh, f.dx + f.dw - r, f.dy + f.dh, r);
+                ctx.lineTo(f.dx + r, f.dy + f.dh);
+                ctx.arcTo(f.dx, f.dy + f.dh, f.dx, f.dy + f.dh - r, r);
+                ctx.lineTo(f.dx, f.dy + r);
+                ctx.arcTo(f.dx, f.dy, f.dx + r, f.dy, r);
+                ctx.closePath();
+                ctx.clip();
+              }
+              ctx.drawImage(f.source, f.sx, f.sy, f.sw, f.sh, f.dx, f.dy, f.dw, f.dh);
+              if (f.borderRadius) {
+                ctx.restore();
+              }
+            case 14:
+              _context7.n = 11;
+              break;
+            case 15:
+              _context7.n = 17;
+              break;
+            case 16:
+              _context7.p = 16;
+              _t9 = _context7.v;
+              _iterator6.e(_t9);
+            case 17:
+              _context7.p = 17;
+              _iterator6.f();
+              return _context7.f(17);
+            case 18:
+              _context7.n = 19;
+              return this._requestAnimationFrame();
+            case 19:
+              // ========= IMAGES =========
+              ctx.strokeStyle = prevStrokeStyle;
+              ctx.lineWidth = prevLineWidth;
+              _iterator7 = _createForOfIteratorHelper(data.images);
+              _context7.p = 20;
+              _iterator7.s();
+            case 21:
+              if ((_step7 = _iterator7.n()).done) {
+                _context7.n = 24;
+                break;
+              }
+              im = _step7.value;
+              if (im.source) {
+                _context7.n = 22;
+                break;
+              }
+              return _context7.a(3, 23);
+            case 22:
+              if (im.rotate180) {
+                ctx.save();
+                ctx.translate(im.dx + im.dw / 2, im.dy + im.dh / 2);
+                ctx.rotate(Math.PI);
+                ctx.drawImage(im.source, -im.dw / 2, -im.dh / 2, im.dw, im.dh);
+                ctx.restore();
+              } else {
+                ctx.drawImage(im.source, im.dx, im.dy, im.dw, im.dh);
+              }
+            case 23:
+              _context7.n = 21;
+              break;
+            case 24:
+              _context7.n = 26;
+              break;
+            case 25:
+              _context7.p = 25;
+              _t0 = _context7.v;
+              _iterator7.e(_t0);
+            case 26:
+              _context7.p = 26;
+              _iterator7.f();
+              return _context7.f(26);
+            case 27:
+              _context7.n = 28;
+              return this._requestAnimationFrame();
+            case 28:
+              // ========= TEXT =========
+              lastFont = "";
+              lastColor = "";
+              lastAlign = "";
+              ctx.textBaseline = "alphabetic";
+              _iterator8 = _createForOfIteratorHelper(data.texts);
+              try {
+                for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
+                  t = _step8.value;
+                  if (t.font !== lastFont) {
+                    ctx.font = t.font;
+                    lastFont = t.font;
+                  }
+                  if (t.color !== lastColor) {
+                    ctx.fillStyle = t.color;
+                    lastColor = t.color;
+                  }
+                  if (t.textAlign !== lastAlign) {
+                    ctx.textAlign = t.textAlign;
+                    lastAlign = t.textAlign;
+                  }
+                  x = t.x0;
+                  if (t.textAlign === "center") x += t.w * 0.5;else if (t.textAlign === "right") x += t.w;
+                  ctx.fillText(t.text, x, t.y0 + t.ascent);
+                }
+              } catch (err) {
+                _iterator8.e(err);
+              } finally {
+                _iterator8.f();
+              }
+              _context7.n = 29;
+              return this._requestAnimationFrame();
+            case 29:
+              return _context7.a(2, canvas);
+          }
+        }, _callee7, this, [[20, 25, 26, 27], [10, 16, 17, 18], [1, 6, 7, 8]]);
+      }));
+      function _renderOnMainThread(_x2) {
+        return _renderOnMainThread2.apply(this, arguments);
+      }
+      return _renderOnMainThread;
+    }() // === Collect helpers ===
+  }, {
+    key: "_awaitPerformance",
+    value: function _awaitPerformance() {
+      var _this3 = this;
+      // Acquire lock for performance points
+      _common_EventLock__WEBPACK_IMPORTED_MODULE_50__["default"].acquire("canvas:pp_ready");
+
+      // Set performance points
+      var setPerformancePoints = function setPerformancePoints() {
+        _this3._performancePoints = window.pp;
+        _this3._isSlowDevice = _this3._performancePoints <= Canvas.SLOW_DEVICE_PERFORMANCE_POINTS;
+        window.pp = null;
+        _common_EventLock__WEBPACK_IMPORTED_MODULE_50__["default"].release("canvas:pp_ready");
+      };
+
+      // If performance points already set, return immediately
+      if (typeof window.pp !== "undefined") {
+        setPerformancePoints();
+        return;
+      }
+
+      // Wait until performance points listener is triggered
+      document.addEventListener('canvas:pp', function () {
+        setPerformancePoints();
+      }, {
+        once: true
+      });
+    }
+  }, {
+    key: "_requestAnimationFrame",
+    value: function () {
+      var _requestAnimationFrame2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8() {
+        var _t1;
         return _regenerator().w(function (_context8) {
           while (1) switch (_context8.n) {
             case 0:
-              imgs = Array.from(root.querySelectorAll(selector));
-              items = imgs.map(function (img) {
-                var r = img.getBoundingClientRect();
-                var style = getComputedStyle(img);
-                var asset = _AssetsLoader__WEBPACK_IMPORTED_MODULE_42__["default"].getAssetByElement(img);
-                var source = (asset === null || asset === void 0 ? void 0 : asset.bitmap) || (asset === null || asset === void 0 ? void 0 : asset.document);
-                return {
-                  source: source,
-                  dx: r.left - rootRect.left,
-                  dy: r.top - rootRect.top,
-                  dw: r.width,
-                  dh: r.height,
-                  rotate180: img.classList.contains("down"),
-                  visible: style.display !== "none"
-                };
-              }).filter(function (item) {
-                return item.source && item.visible;
-              });
+              _t1 = this._isSlowDevice;
+              if (!_t1) {
+                _context8.n = 1;
+                break;
+              }
               _context8.n = 1;
-              return this._drawInChunks(items, Canvas.DRAWING_CHUNKS, function (item) {
-                ctx.save();
-                if (item.rotate180) {
-                  ctx.translate(item.dx + item.dw / 2, item.dy + item.dh / 2);
-                  ctx.rotate(Math.PI);
-                  ctx.drawImage(item.source, -item.dw / 2, -item.dh / 2, item.dw, item.dh);
-                } else {
-                  ctx.drawImage(item.source, item.dx, item.dy, item.dw, item.dh);
-                }
-                ctx.restore();
-              });
+              return new Promise(requestAnimationFrame);
             case 1:
               return _context8.a(2);
           }
         }, _callee8, this);
       }));
-      function _drawImages(_x1, _x10, _x11, _x12) {
-        return _drawImages2.apply(this, arguments);
+      function _requestAnimationFrame() {
+        return _requestAnimationFrame2.apply(this, arguments);
       }
-      return _drawImages;
+      return _requestAnimationFrame;
     }()
+  }], [{
+    key: "_collectBackgrounds",
+    value: function _collectBackgrounds(root, rootRect, selectors) {
+      var elements = [];
+      (function walk(el) {
+        if (selectors.some(function (sel) {
+          return el.matches(sel);
+        })) elements.push(el);
+        Array.from(el.children).forEach(walk);
+      })(root);
+      return elements.map(function (el) {
+        var style = getComputedStyle(el);
+        var r = el.getBoundingClientRect();
+
+        // Parse borderRadius for corners
+        var radius = style.borderRadius && style.borderRadius !== "0px" ? Canvas._parseBorderRadius(style.borderRadius, r.width, r.height) : null;
+        return {
+          x: r.left - rootRect.left,
+          y: r.top - rootRect.top,
+          w: r.width,
+          h: r.height,
+          bg: style.backgroundColor,
+          opacity: parseFloat(style.opacity || 1),
+          radius: radius
+        };
+      }).filter(function (item) {
+        return item.bg && item.bg !== "transparent" && item.bg !== "rgba(0, 0, 0, 0)";
+      });
+    }
   }, {
-    key: "_drawTexts",
-    value: function () {
-      var _drawTexts2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(ctx, root, rootRect) {
-        var walker, items, node, el, style, r, x0, y0, w, h;
-        return _regenerator().w(function (_context9) {
-          while (1) switch (_context9.n) {
-            case 0:
-              walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-                acceptNode: function acceptNode(node) {
-                  var text = node.textContent.trim();
-                  if (!text) return NodeFilter.FILTER_REJECT;
-                  if (/^\[.*]$/.test(text)) return NodeFilter.FILTER_REJECT;
-                  return NodeFilter.FILTER_ACCEPT;
-                }
-              });
-              items = [];
-            case 1:
-              if (!walker.nextNode()) {
-                _context9.n = 3;
-                break;
-              }
-              node = walker.currentNode;
-              el = node.parentElement;
-              if (el) {
-                _context9.n = 2;
-                break;
-              }
-              return _context9.a(3, 1);
-            case 2:
-              style = getComputedStyle(el);
-              r = el.getBoundingClientRect();
-              x0 = r.left - rootRect.left + parseFloat(style.paddingLeft || 0);
-              y0 = r.top - rootRect.top + parseFloat(style.paddingTop || 0);
-              w = el.clientWidth - parseFloat(style.paddingLeft || 0) - parseFloat(style.paddingRight || 0);
-              h = el.clientHeight - parseFloat(style.paddingTop || 0) - parseFloat(style.paddingBottom || 0);
-              items.push({
-                text: node.textContent,
-                x0: x0,
-                y0: y0,
-                w: w,
-                h: h,
-                font: "".concat(style.fontWeight, " ").concat(style.fontSize, " ").concat(style.fontFamily),
-                color: style.color,
-                textAlign: style.textAlign,
-                ascent: parseFloat(style.fontSize) * 0.8
-              });
-              _context9.n = 1;
-              break;
-            case 3:
-              _context9.n = 4;
-              return this._drawInChunks(items, Canvas.DRAWING_CHUNKS, function (item) {
-                ctx.save();
-                ctx.beginPath();
-                ctx.rect(item.x0, item.y0, item.w, item.h);
-                ctx.clip();
-                ctx.font = item.font;
-                ctx.fillStyle = item.color;
-                ctx.textBaseline = "alphabetic";
-                var x = item.x0;
-                var y = item.y0 + item.ascent;
-                switch (item.textAlign) {
-                  case "center":
-                    ctx.textAlign = "center";
-                    x += item.w / 2;
-                    break;
-                  case "right":
-                    ctx.textAlign = "right";
-                    x += item.w;
-                    break;
-                  default:
-                    ctx.textAlign = "left";
-                }
-                ctx.fillText(item.text, x, y);
-                ctx.restore();
-              });
-            case 4:
-              return _context9.a(2);
-          }
-        }, _callee9, this);
-      }));
-      function _drawTexts(_x13, _x14, _x15) {
-        return _drawTexts2.apply(this, arguments);
+    key: "_collectFlags",
+    value: function _collectFlags(root, rootRect, selector, imageSelector, borderSelector) {
+      var img = root.closest("body").querySelector(imageSelector);
+      if (!img) return [];
+      var elements = Array.from(root.querySelectorAll(selector));
+      var items = elements.map(function (el) {
+        var style = getComputedStyle(el);
+        var r = el.getBoundingClientRect();
+        var asset = _AssetsLoader__WEBPACK_IMPORTED_MODULE_49__["default"].getAssetByElement(img);
+        var source = (asset === null || asset === void 0 ? void 0 : asset.bitmap) || (asset === null || asset === void 0 ? void 0 : asset.document);
+        if (!source) return null;
+        var sx = -parseFloat(style.backgroundPositionX || 0);
+        var sy = -parseFloat(style.backgroundPositionY || 0);
+        var sw = Math.min(r.width * Canvas.FLAGS_SCALE, img.naturalWidth - sx);
+        var sh = Math.min(r.height * Canvas.FLAGS_SCALE, img.naturalHeight - sy);
+        if (sw <= 0 || sh <= 0) return null;
+        return {
+          dx: r.left - rootRect.left,
+          dy: r.top - rootRect.top,
+          dw: r.width,
+          dh: r.height,
+          sx: sx,
+          sy: sy,
+          sw: sw,
+          sh: sh,
+          source: source,
+          borderRadius: parseFloat(style.borderRadius) || 0
+        };
+      }).filter(Boolean);
+
+      // optional: collect border data
+      if (borderSelector) {
+        var borders = Array.from(root.querySelectorAll(borderSelector));
+        borders.forEach(function (el) {
+          var style = getComputedStyle(el);
+          var r = el.getBoundingClientRect();
+          var bw = parseFloat(style.borderTopWidth || 0);
+          if (bw <= 0) return;
+          items.push({
+            x: r.left - rootRect.left,
+            y: r.top - rootRect.top,
+            w: r.width,
+            h: r.height,
+            color: style.borderTopColor,
+            bw: bw,
+            isBorder: true,
+            radius: parseFloat(style.borderRadius) || 0
+          });
+        });
       }
-      return _drawTexts;
-    }()
+      return items;
+    }
   }, {
-    key: "_drawInChunks",
-    value: function () {
-      var _drawInChunks2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(elements, chunkSize, drawFn) {
-        var i, chunk;
-        return _regenerator().w(function (_context0) {
-          while (1) switch (_context0.n) {
-            case 0:
-              i = 0;
-            case 1:
-              if (!(i < elements.length)) {
-                _context0.n = 3;
-                break;
-              }
-              chunk = elements.slice(i, i + chunkSize);
-              chunk.forEach(function (el) {
-                return drawFn(el);
-              });
-              _context0.n = 2;
-              return new Promise(function (r) {
-                return setTimeout(r, 0);
-              });
-            case 2:
-              i += chunkSize;
-              _context0.n = 1;
-              break;
-            case 3:
-              return _context0.a(2);
-          }
-        }, _callee0);
-      }));
-      function _drawInChunks(_x16, _x17, _x18) {
-        return _drawInChunks2.apply(this, arguments);
+    key: "_collectImages",
+    value: function _collectImages(root, rootRect, selector) {
+      var imgs = Array.from(root.querySelectorAll(selector));
+      return imgs.map(function (img) {
+        var style = getComputedStyle(img);
+        var r = img.getBoundingClientRect();
+        var asset = _AssetsLoader__WEBPACK_IMPORTED_MODULE_49__["default"].getAssetByElement(img);
+        var source = asset ? asset.bitmap || asset.document : null;
+        return {
+          source: source,
+          dx: r.left - rootRect.left,
+          dy: r.top - rootRect.top,
+          dw: r.width,
+          dh: r.height,
+          rotate180: img.classList.contains("down"),
+          visible: style.display !== "none"
+        };
+      }).filter(function (item) {
+        return item.source && item.visible;
+      });
+    }
+  }, {
+    key: "_collectTexts",
+    value: function _collectTexts(root, rootRect, selector) {
+      var spans = root.querySelectorAll(selector);
+      var items = [];
+      var _iterator9 = _createForOfIteratorHelper(spans),
+        _step9;
+      try {
+        for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
+          var el = _step9.value;
+          var text = el.textContent.trim();
+          if (!text) continue;
+          var style = getComputedStyle(el);
+          var r = el.getBoundingClientRect();
+          var paddingLeft = parseFloat(style.paddingLeft) || 0;
+          var paddingTop = parseFloat(style.paddingTop) || 0;
+          var paddingRight = parseFloat(style.paddingRight) || 0;
+          var paddingBottom = parseFloat(style.paddingBottom) || 0;
+          var fontSize = parseFloat(style.fontSize) || 0;
+          items.push({
+            text: text,
+            x0: r.left - rootRect.left + paddingLeft,
+            y0: r.top - rootRect.top + paddingTop,
+            w: el.clientWidth - paddingLeft - paddingRight,
+            h: el.clientHeight - paddingTop - paddingBottom,
+            font: "".concat(style.fontWeight, " ").concat(style.fontSize, " ").concat(style.fontFamily),
+            color: style.color,
+            textAlign: style.textAlign,
+            ascent: fontSize * 0.8
+          });
+        }
+      } catch (err) {
+        _iterator9.e(err);
+      } finally {
+        _iterator9.f();
       }
-      return _drawInChunks;
-    }()
+      return items;
+    }
   }, {
     key: "_roundedRectPath",
     value: function _roundedRectPath(ctx, x, y, w, h, r) {
@@ -12549,8 +13354,7 @@ var Canvas = /*#__PURE__*/function () {
 }();
 _defineProperty(Canvas, "TARGET_WIDTH", 1660);
 _defineProperty(Canvas, "FLAGS_SCALE", 2);
-// one flag in the spritesheet is 2 times bigger than html div where the flag is rendered
-_defineProperty(Canvas, "DRAWING_CHUNKS", 100000);
+_defineProperty(Canvas, "SLOW_DEVICE_PERFORMANCE_POINTS", 100);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Canvas);
 
 /***/ },
@@ -12782,7 +13586,7 @@ var TableGenerator = /*#__PURE__*/function () {
               _context.n = 2;
               return this._onDOMContentLoaded();
             case 2:
-              _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].release("table_generator:ready", true);
+              _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].release("table_generator:ready");
             case 3:
               return _context.a(2);
           }
@@ -12815,7 +13619,7 @@ var TableGenerator = /*#__PURE__*/function () {
                           return e;
                         });
                       case 1:
-                        _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].release("table_generator:assets_on_dom_ready", true);
+                        _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].release("table_generator:assets_on_dom_ready");
                       case 2:
                         return _context2.a(2);
                     }
@@ -12878,10 +13682,10 @@ var TableGenerator = /*#__PURE__*/function () {
               // Wait until entrypoint .css file has fully loaded
               _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].acquire('css:ready');
               if (_common_CssProperty__WEBPACK_IMPORTED_MODULE_52__["default"].equals(document.documentElement, "--css-loaded", "1")) {
-                _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].release('css:ready', true);
+                _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].release('css:ready');
               } else {
                 document.addEventListener('css:ready', function () {
-                  _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].release('css:ready', true);
+                  _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].release('css:ready');
                 }, {
                   once: true
                 });
@@ -12894,7 +13698,7 @@ var TableGenerator = /*#__PURE__*/function () {
               _context5.n = 2;
               return _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].wait('css:ready');
             case 2:
-              _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].release("table_generator:assets_ready", true);
+              _common_EventLock__WEBPACK_IMPORTED_MODULE_49__["default"].release("table_generator:assets_ready");
             case 3:
               return _context5.a(2);
           }
@@ -13014,12 +13818,12 @@ var TableGenerator = /*#__PURE__*/function () {
         boardName = "Custom";
       }
       var gameModeText = this.board.lobby_type.code.toUpperCase() + " " + this._getGameMode().name;
-      var lobbyNumber = this.table.number ? this._truncateText(String(this.table.number), 6) : "1";
-      var lobbyText = boardName + " | " + gameModeText + " | " + "Lobby #".concat(lobbyNumber);
+      var lobbyNumber = this.table.number ? this._truncateText(String(this.table.number), 7) : "1";
+      var lobbyText = "".concat(boardName, " | ").concat(gameModeText, " | Lobby&nbsp;#").concat(lobbyNumber);
       if (this.isSubmittedMatch) {
         lobbyText += "| Submitted";
       }
-      lobbyText = this._truncateText(lobbyText, 68);
+      lobbyText = this._truncateText(lobbyText, 77);
       var chunks = lobbyText.match(/[^#]+|#/g);
       lobbyText = "";
       var _iterator = _createForOfIteratorHelper(chunks.entries()),
